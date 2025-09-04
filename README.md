@@ -17,7 +17,6 @@
 
 - <a href="#overview"> Overview </a>
 - <a href="#project-insights"> Project Insights </a>
-- <a href="#screenshots"> Screenshots </a>
 - <a href="#features">Features</a>
 - <a href="#tech-stack"> Tech Stack </a>
 - <a href="#project-structure"> Project Structure </a>
