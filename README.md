@@ -9,7 +9,7 @@
 ![GitHub Contributors](https://img.shields.io/github/contributors/CharithaReddy18/AI-health-chatbot)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/CharithaReddy18/AI-health-chatbot)
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/CharithaReddy18/AI-health-chatbot)
-![Github](https://img.shields.io/github/license/eccentriccoder01/Venturalink)
+![Github](https://img.shields.io/github/license/CharithaReddy18/AI-health-chatbot)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
@@ -19,9 +19,11 @@
 - <a href="#project-insights"> Project Insights </a>
 - <a href="#screenshots"> Screenshots </a>
 - <a href="#features">Features</a>
-- <a href="#technology-stack"> Technology Stack </a>
-- <a href="#installation-setup"> Installation & Setup </a>
-- <a href="#roadmap-enhancements">  Roadmap & Future Enhancements </a>
+- <a href="#tech-stack"> Tech Stack </a>
+- <a href="#project-structure"> Project Structure </a>
+- <a href="#installation-setup"> Installation & Setup</a>
+- <a href="#future-advancements">Future Advancements</a>
+- <a href="#roadmap">Roadmap</a>
 - <a href="#acknowledgments">Acknowledgments</a>
 - <a href="#contact">Contact</a>
 - <a href="#how-to-contribute">How to Contribute</a>
@@ -131,7 +133,7 @@ It uses **rule-based logic** and a **RAG** (Retrieval-Augmented Generation) pipe
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-## 📂 Project Structure
+<h2 id="project-structure">📂 Project Structure</h2>
 
 ```plaintext
 AI-health-chatbot/
@@ -194,7 +196,7 @@ streamlit run app.py
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-## 🚀 Future Advancements
+<h2 id="future-advancements">🚀 Future Advancements</h2>
 
 * **Multi-language Support** – Enable chatbot to respond in multiple languages for broader accessibility.
 * **Voice Input & Output** – Add speech-to-text and text-to-speech for hands-free interaction.
@@ -203,7 +205,7 @@ streamlit run app.py
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-## 📌 Roadmap
+<h2 id="roadmap">📌 Roadmap</h2>
 
 See the [ROADMAP.md](./ROADMAP.md) for upcoming features and plans.
 
@@ -217,7 +219,7 @@ Report bugs and issues or propose improvements through our GitHub repository's "
 
 ## Contribution Guidelines 📑
 
-- Firstly Star(⭐) the Repository
+- Firstly Star (⭐) the Repository
 - Fork the Repository and create a new branch for any updates/changes/issue you are working on.
 - Start Coding and do changes.
 - Commit your changes
