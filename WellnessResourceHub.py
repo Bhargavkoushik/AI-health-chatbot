@@ -92,64 +92,39 @@ if page == "🏠 Wellness Hub":
     st.success(random.choice(affirmations))
 
 # --- Page 2: Daily Affirmation ---
-elif page == "🌞 Daily Affirmation":
-    st.title("🌞 Daily Positive Affirmation")
-    st.write("Here’s a little boost for your day:")
-    st.info(random.choice(affirmations))
-
-# --- Page 3: Quick Self-Check ---
-elif page == "✅ Quick Self-Check":
-    st.title("✅ Quick Wellness Self-Check")
-    st.write("Answer a few quick questions to get simple wellness advice.")
-
-    stress = st.slider("How stressed are you feeling today?", 0, 10, 5)
-    sleep = st.slider("How many hours did you sleep last night?", 0, 12, 7)
-    mood = st.slider("How is your overall mood today?", 0, 10, 6)
-
-    if st.button("Get My Wellness Tip"):
-        if stress > 7:
-            st.warning("😟 You seem stressed. Try deep breathing or take a short walk.")
-        elif sleep < 6:
-            st.warning("😴 You need more rest. Try to get at least 7–8 hours of sleep.")
-        elif mood < 5:
-            st.info("💙 It’s okay to have tough days. Try journaling or talking to a friend.")
-        else:
-            st.success("🌟 You're doing well! Keep maintaining your healthy habits.")
-
-# --- Page 4: Daily Planner ---
-elif page == "📅 Daily Planner":
-    st.title("📅 Daily Planner")
-    st.write("Plan your day with simple goals.")
-    if "tasks" not in st.session_state:
-        st.session_state.tasks = []
-
-    new_task = st.text_input("Add a new task:")
-    if st.button("➕ Add Task"):
-        if new_task:
-            st.session_state.tasks.append(new_task)
-            st.success(f"Task added: {new_task}")
-
-    st.subheader("✅ Your Tasks")
-    for i, task in enumerate(st.session_state.tasks):
-        st.write(f"- {task}")
-
-# --- Page 5: Mood Tracker ---
 elif page == "📊 Mood Tracker":
-    st.title("📊 Mood Tracker")
-    st.write("Log your daily mood and track progress.")
+    import pandas as pd
+    import datetime
 
+    st.title("📊 Mood Tracker")
+    st.write("Log your daily mood, track progress, and download history.")
+
+    # Initialize session state
     if "moods" not in st.session_state:
         st.session_state.moods = []
 
+    # Log today's mood
+    today = datetime.date.today()
     mood = st.radio("How do you feel today?", ["😊 Happy", "😐 Okay", "😟 Stressed", "😢 Sad"])
     if st.button("Log Mood"):
-        st.session_state.moods.append(mood)
+        st.session_state.moods.append({"date": str(today), "mood": mood})
         st.success(f"Logged mood: {mood}")
 
-    st.subheader("📅 Mood History")
+    # Display mood history
     if st.session_state.moods:
-        for entry in st.session_state.moods:
-            st.write("- " + entry)
+        df = pd.DataFrame(st.session_state.moods)
+        st.subheader("📅 Mood History")
+        st.table(df)
+
+        # Map moods to numbers for plotting
+        mood_map = {"😊 Happy": 4, "😐 Okay": 3, "😟 Stressed": 2, "😢 Sad": 1}
+        df["mood_num"] = df["mood"].map(mood_map)
+        st.subheader("📈 Mood Trend")
+        st.line_chart(df.set_index("date")["mood_num"])
+
+        # Export CSV
+        csv = df.to_csv(index=False).encode("utf-8")
+        st.download_button("⬇️ Download Mood History", csv, "mood_history.csv", "text/csv")
     else:
         st.info("No moods logged yet.")
 
