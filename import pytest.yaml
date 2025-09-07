@@ -1,0 +1,12 @@
+import pytest
+from nlp.translation import translate
+
+def test_identity_translation():
+    text = "hello"
+    assert translate(text, "en", "en") == "hello"
+
+@pytest.mark.parametrize("src,tgt", [("hi","en"), ("en","hi")])
+def test_translate_smoke(src, tgt):
+    # This test is a smoke test: if transformers not installed it returns input unchanged.
+    out = translate("नमस्ते" if src=="hi" else "hello", src, tgt)
+    assert isinstance(out, str)

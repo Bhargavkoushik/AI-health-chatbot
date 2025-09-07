@@ -1,0 +1,44 @@
+import os
+from typing import Optional
+
+def generate_via_groq(prompt: str, temperature: float = 0.0) -> str:
+    """
+    Placeholder: call Groq LLM API if available.
+    Replace with actual HTTP request or SDK call and provide API key via env.
+    """
+    api_key = os.getenv("GROQ_API_KEY")
+    if not api_key:
+        raise RuntimeError("GROQ_API_KEY not set")
+    # TODO: implement actual request to Groq endpoint
+    return "Groq model response (stub)."
+
+def generate_via_openai(prompt: str, temperature: float = 0.0) -> str:
+    """
+    Optional OpenAI fallback. Requires OPENAI_API_KEY in env.
+    """
+    try:
+        import openai
+    except Exception:
+        raise RuntimeError("openai package not installed")
+    key = os.getenv("OPENAI_API_KEY")
+    if not key:
+        raise RuntimeError("OPENAI_API_KEY not set")
+    openai.api_key = key
+    resp = openai.ChatCompletion.create(
+        model="gpt-4o-mini", messages=[{"role":"user","content":prompt}], temperature=temperature
+    )
+    return resp.choices[0].message.content.strip()
+
+def generate_answer(prompt: str, prefer_domain: bool = True) -> str:
+    """
+    Try domain model first (Groq), fallback to OpenAI if not available.
+    """
+    try:
+        if prefer_domain:
+            return generate_via_groq(prompt)
+    except Exception:
+        pass
+    try:
+        return generate_via_openai(prompt)
+    except Exception:
+        return "Sorry — model unavailable. Please configure GROQ_API_KEY or OPENAI_API_KEY."
