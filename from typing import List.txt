@@ -1,0 +1,21 @@
+from typing import List
+import numpy as np
+from sentence_transformers import SentenceTransformer
+
+# multilingual model tuned for semantic search
+_MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
+
+_model = None
+
+def get_model():
+    global _model
+    if _model is None:
+        _model = SentenceTransformer(_MODEL_NAME)
+    return _model
+
+def embed_texts(texts: List[str]) -> np.ndarray:
+    model = get_model()
+    embs = model.encode(texts, convert_to_numpy=True, show_progress_bar=False)
+    if embs.ndim == 1:
+        embs = embs.reshape(1, -1)
+    return embs

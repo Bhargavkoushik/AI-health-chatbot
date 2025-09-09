@@ -1,0 +1,63 @@
+import streamlit as st
+from nlp.translation import translate
+from nlp.retriever import FaissRetriever
+from nlp.llm import generate_answer
+
+# Example documents; replace by your real medical corpus and index builder
+EXAMPLE_DOCS = [
+    "Diabetes is characterized by elevated blood glucose levels and polyuria.",
+    "Hypertension increases the risk of heart disease and stroke.",
+    "For fever and body pain, paracetamol 500 mg is commonly used."
+]
+
+def init_state():
+    if "lang" not in st.session_state:
+        st.session_state.lang = "en"
+    if "history" not in st.session_state:
+        st.session_state.history = []
+    if "retriever" not in st.session_state:
+        r = FaissRetriever()
+        r.build(EXAMPLE_DOCS)
+        st.session_state.retriever = r
+
+def main():
+    st.set_page_config(page_title="Multilingual Health Chatbot")
+    init_state()
+
+    st.title("AI Health Chatbot — Multilingual")
+    lang = st.selectbox("Select language / भाषा / భాష", options=["en", "hi", "mr", "te"], index=["en","hi","mr","te"].index(st.session_state.lang))
+    st.session_state.lang = lang
+
+    user_input = st.text_area("Enter your query", value="", height=120)
+    if st.button("Send"):
+        if not user_input.strip():
+            st.warning("Enter a question.")
+            return
+
+        # 1) Translate to English for backend processing
+        backend_text = translate(user_input, src_lang=st.session_state.lang, tgt_lang="en")
+
+        # 2) Retrieve context using multilingual embeddings
+        retriever: FaissRetriever = st.session_state.retriever
+        results = retriever.query(backend_text, top_k=3)
+        context = "\n".join([f"- {r[0]}" for r in results])
+
+        # 3) Compose prompt for LLM (domain model preferred)
+        prompt = f"You are a medical assistant. Use the retrieved context to answer.\n\nContext:\n{context}\n\nQuestion: {backend_text}\nAnswer concisely and cite context if helpful."
+
+        answer_en = generate_answer(prompt, prefer_domain=True)
+
+        # 4) Translate back to user language
+        answer_local = translate(answer_en, src_lang="en", tgt_lang=st.session_state.lang)
+
+        # 5) Save history
+        st.session_state.history.append({"q": user_input, "a": answer_local, "lang": st.session_state.lang})
+        st.experimental_rerun()
+
+    # render conversation
+    for item in reversed(st.session_state.history):
+        st.markdown(f"**User ({item['lang']}):** {item['q']}")
+        st.markdown(f"**Bot:** {item['a']}")
+
+if __name__ == "__main__":
+    main()

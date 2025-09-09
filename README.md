@@ -163,7 +163,52 @@ AI-health-chatbot/
 │       index.pkl              # Pickled embeddings
 ```
 
+<<<<<<< HEAD
+
+##  Another Documentation 
+AI-health-chatbot-1/
+├─ app/
+├─ data/
+├─ nlp/
+├─ scripts/
+├─ requirements.txt
+├─ README.md   
+
+# AI Health Chatbot
+
+Medibot is a Streamlit-based AI health assistant that provides symptom checking, health guidance, and doctor recommendations using NLP and Retrieval-Augmented Generation (RAG).
+
+---
+
+## 🚀 New Feature: NLP Enhancement (Multilingual Support)
+
+- Added translation pipeline (English ↔ Hindi, Marathi, Telugu).
+- Integrated multilingual embeddings with FAISS.
+- Added language selector in Streamlit UI.
+- Ensured responses maintain medical safety disclaimer.
+
+### How to Run:
+1. `pip install -r requirements.txt`
+2. `python scripts/index_docs.py`
+3. `streamlit run app/streamlit_app.py`
+
+---
+
+## Features
+- Symptom checking
+- Doctor recommendation
+- Medical knowledge retrieval
+- **NEW: Multilingual support (Hindi, Marathi, Telugu, English)** ✅
+
+---
+
+## Disclaimer
+This chatbot provides general health information and is **not a substitute for professional medical advice**.
+
+---
+=======
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+>>>>>>> e97a506a8cec23ea3742d75cdeb2cad009baf050
 
 <h2 id="installation-setup"> ⚡ Installation & Setup</h2>
 
