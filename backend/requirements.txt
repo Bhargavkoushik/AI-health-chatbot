@@ -1,11 +1,40 @@
+# Core Web Framework
 fastapi
-uvicorn
-pandas
-scikit-learn
-python-dotenv
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-multipart
+aiofiles
+
+# LangChain Ecosystem
 langchain
+langchain-core
 langchain-community
+langchain-text-splitters
+langchain-google-genai
 langchain-groq
 langchain-huggingface
-faiss-cpu
+langchain-qdrant
+
+# AI, Machine Learning & Embeddings
+google-generativeai
+sentence-transformers
 transformers
+torch
+scikit-learn
+
+# Vector Database
+qdrant-client
+faiss-cpu # Note: You have both qdrant and faiss. Ensure you need both.
+
+# Data Handling & Utilities
+pandas
+numpy
+requests
+beautifulsoup4
+python-dotenv
+loguru
+
+# Document Loaders
+python-docx
+pypdf

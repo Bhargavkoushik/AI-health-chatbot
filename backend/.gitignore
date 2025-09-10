@@ -1,4 +1,6 @@
-# Byte-compiled / optimized / DLL files
+# ------------------------
+# Python ignores
+# ------------------------
 __pycache__/
 *.py[cod]
 *$py.class
@@ -6,7 +8,7 @@ __pycache__/
 # C extensions
 *.so
 
-# Virtual environment
+# Virtual environments
 .venv/
 venv/
 ENV/
@@ -44,9 +46,11 @@ coverage.xml
 .pytest_cache/
 test-results/
 
-# dotenv environment variables
+# ------------------------
+# Environment & configs
+# ------------------------
 .env
-.env.*
+.env.*  
 *.env
 
 # IDE / editor stuff
@@ -65,3 +69,30 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
+
+# ------------------------
+# ML / Backend Specific
+# ------------------------
+
+# HuggingFace / transformers cache
+cache/
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.h5
+*.onnx
+
+# Model training outputs
+runs/
+checkpoints/
+outputs/
+
+# Temporary notebooks / experiments
+*.ipynb_checkpoints
+
+# ------------------------
+# Medical Knowledge
+# ------------------------
+# Explicitly allow medical knowledge JSON/TXT/CSV
+!app/data/medical_knowledge/
