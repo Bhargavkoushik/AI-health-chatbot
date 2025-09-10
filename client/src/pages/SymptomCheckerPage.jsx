@@ -55,7 +55,7 @@ const SymptomCheckerPage = () => {
   return (
     <div
       className="flex flex-col pt-14"
-      style={{ height: "calc(100vh - 3rem)" }}
+      style={{ height: "calc(100vh)" }}
     >
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
