@@ -611,19 +611,3 @@ If you find MediBot helpful, please consider:
 **[⬆️ Back to Top](#-medibot-ai-health-assistant)**
 
 </div>
-```
-
-This comprehensive README includes:
-
-1. **Complete project overview** with current architecture
-2. **Detailed setup instructions** for both backend and frontend
-3. **Comprehensive feature documentation** 
-4. **API documentation** with examples
-5. **Contributing guidelines** for GSSoC participants
-6. **Professional styling** with badges and icons
-7. **Clear project structure** explanation
-8. **Testing instructions** for various scenarios
-9. **Roadmap** showing future development plans
-10. **Recognition** of all contributors and mentors
-
-The README accurately reflects your modernized RAG pipeline implementation and provides everything needed for new contributors to understand and work with the project.
