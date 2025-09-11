@@ -1,463 +1,613 @@
-<a name="top"></a>
+# 🤖 MediBot: AI Health Assistant
 
-<h1 align="center">🤖 Medibot: AI Health Assistant 🩺</h1>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GSSoC '25](https://img.shields.io/badge/GSSoC-%2725-blue)](https://gssoc.girlscript.tech/)
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18+-61DAFB.svg)](https://reactjs.org/)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED.svg)](https://www.docker.com/)
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+> **An intelligent, conversational AI Health Assistant that provides safe, contextually aware, and empathetic health information through advanced RAG (Retrieval-Augmented Generation) technology.**
 
-[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat)
-![Built with Love](https://img.shields.io/badge/Built%20with-%E2%9D%A4-red?style=for-the-badge)
-![Visitors](https://api.visitorbadge.io/api/Visitors?path=CharithaReddy18%2FAI-health-chatbot%20&countColor=%23263759&style=flat)
-![GitHub Contributors](https://img.shields.io/github/contributors/CharithaReddy18/AI-health-chatbot)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/CharithaReddy18/AI-health-chatbot)
-![GitHub Repo Size](https://img.shields.io/github/repo-size/CharithaReddy18/AI-health-chatbot)
-![Github](https://img.shields.io/github/license/CharithaReddy18/AI-health-chatbot)
+![MediBot Demo](https://github.com/user-attachments/assets/08cc8775-ec98-47ce-a0db-1df7714bbbaa)
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+---
 
-<h3>📖 Table of Contents</h3> 
+## 📖 Table of Contents
 
-- <a href="#overview"> Overview </a>
-- <a href="#project-insights"> Project Insights </a>
-- <a href="#features">Features</a>
-- <a href="#tech-stack"> Tech Stack </a>
-- <a href="#project-structure"> Project Structure </a>
-- <a href="#installation-setup"> Installation & Setup</a>
-- <a href="#future-advancements">Future Advancements</a>
-- <a href="#roadmap">Roadmap</a>
-- <a href="#acknowledgments">Acknowledgments</a>
-- <a href="#contact">Contact</a>
-- <a href="#how-to-contribute">How to Contribute</a>
-- <a href="#contributing">Contributing</a>
-- <a href="#code-of-conduct">Code of Conduct</a>
-- <a href="#contribution-guidelines">Contribution Guidelines</a>
-- <a href="#suggestions-feedback"> Suggestions & Feedback</a>
-- <a href="#show-your-support">Show Your Support</a>
-- <a href="#license">License</a>
-- <a href="#stargazers">Stargazers</a>
-- <a href="#forkers">Forkers</a>
-- <a href="#project-admin">Project Admin</a>
+- [🌟 Overview](#-overview)
+- [✨ Key Features](#-key-features)
+- [🏗️ Architecture](#️-architecture)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📂 Project Structure](#-project-structure)
+- [🚀 Quick Start](#-quick-start)
+- [⚙️ Configuration](#️-configuration)
+- [🧪 Testing the System](#-testing-the-system)
+- [🔬 API Documentation](#-api-documentation)
+- [🎯 Features Roadmap](#-features-roadmap)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [👥 Contributors](#-contributors)
 
-> An **AI-Powered Health Assistant** that provides users with **health-related guidance**, **symptom analysis**, and **basic medical recommendations**.
+---
 
-It uses **rule-based logic** and a **RAG** (Retrieval-Augmented Generation) pipeline powered by a Groq LLM. When rule-based response fails, RAG fetches data from trusted medical databases to provide relevant answers for unhandled queries.
+## 🌟 Overview
 
-> ⚠️ **Disclaimer:** This chatbot is **not a replacement** for professional medical advice. Always consult a qualified healthcare provider for serious or persistent health issues.
+**MediBot** represents a significant evolution in AI-powered healthcare assistance, transitioning from simple rule-based responses to a sophisticated, full-stack application powered by modern artificial intelligence. This project bridges the gap between users and healthcare information by offering intelligent, contextually aware health guidance.
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+### 🎯 What Makes MediBot Special?
 
-## 💡 Overview
+- **Advanced RAG Pipeline**: Unlike traditional chatbots, MediBot uses Retrieval-Augmented Generation to understand context, retrieve relevant medical information, and synthesize accurate responses
+- **Human-Like Conversations**: Powered by Google's Gemini models with carefully crafted prompts that ensure natural, empathetic interactions
+- **Safety-First Design**: Every response includes mandatory medical disclaimers and escalation guidance
+- **Modern Architecture**: Full-stack application with React frontend, FastAPI backend, and Qdrant vector database
+- **Docker-Ready**: Fully containerized for consistent development and deployment
 
-**Medibot** bridges the gap between users and healthcare professionals by offering:
+> ⚠️ **Important Disclaimer**: MediBot is designed for educational and informational purposes only. It is **not a replacement** for professional medical advice, diagnosis, or treatment. Always consult qualified healthcare providers for medical concerns.
 
-* Understanding of user health queries
-* Symptom analysis with possible next steps
-* Rule-based responses for common health questions
-* AI-powered fallback responses using Groq
-* Efficient medical data retrieval via FAISS-based database
-* Doctor specialist recommendations based on symptoms/diseases
-* A user-friendly Streamlit web interface
+---
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+## ✨ Key Features
 
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=00C853&center=true&vCenter=true&width=900&lines=Thanks+for+visiting+AI-health-chatbot!+🙌;Start+the+repo+✅;Share+it+with+others+🌍;Contribute+and+grow+🛠️;Happy+Coding+✨!" alt="Thanks Banner Typing SVG" />
-</div>
+### 🧠 **Intelligent Symptom Analysis**
+- **Natural Language Processing**: Understands complex symptom descriptions in everyday language
+- **Contextual Responses**: Provides relevant information based on medical knowledge base
+- **Graceful Fallbacks**: When specific information isn't available, offers safe general wellness guidance
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+### 🎭 **Human-Like Persona**
+- **Empathetic Communication**: MediBot adopts a caring, supportive tone in all interactions
+- **No Technical Jargon**: Avoids revealing its internal processes (like "according to the documents...")
+- **Consistent Character**: Maintains its helpful health assistant persona throughout conversations
 
-<h2 id="project-insights">📊 Project Insights</h2>
+### 🔒 **Safety & Reliability**
+- **Medical Disclaimers**: Every response concludes with appropriate safety warnings
+- **Escalation Logic**: Identifies when users should seek immediate medical attention
+- **Controlled Responses**: Limited to safe, general wellness advice when specific data is unavailable
 
-<table align="center">
-    <thead align="center">
-        <tr>
-            <td><b>🌟 Stars</b></td>
-            <td><b>🍴 Forks</b></td>
-            <td><b>🐛 Issues</b></td>
-            <td><b>🔔 Open PRs</b></td>
-            <td><b>🔕 Closed PRs</b></td>
-            <td><b>🛠️ Languages</b></td>
-            <td><b>👥 Contributors</b></td>
-        </tr>
-     </thead>
-    <tbody>
-         <tr>
-            <td><img alt="Stars" src="https://img.shields.io/github/stars/CharithaReddy18/AI-health-chatbot?style=flat&logo=github"/></td>
-            <td><img alt="Forks" src="https://img.shields.io/github/forks/CharithaReddy18/AI-health-chatbot?style=flat&logo=github"/></td>
-            <td><img alt="Issues" src="https://img.shields.io/github/issues/CharithaReddy18/AI-health-chatbot?style=flat&logo=github"/></td>
-            <td><img alt="Open PRs" src="https://img.shields.io/github/issues-pr/CharithaReddy18/AI-health-chatbot?style=flat&logo=github"/></td>
-            <td><img alt="Closed PRs" src="https://img.shields.io/github/issues-pr-closed/CharithaReddy18/AI-health-chatbot?style=flat&color=critical&logo=github"/></td>
-            <td><img alt="Languages Count" src="https://img.shields.io/github/languages/count/CharithaReddy18/AI-health-chatbot?style=flat&color=green&logo=github"></td>
-            <td><img alt="Contributors Count" src="https://img.shields.io/github/contributors/CharithaReddy18/AI-health-chatbot?style=flat&color=blue&logo=github"/></td>
-        </tr>
-    </tbody>
-</table>
+### 🏗️ **Modern Infrastructure**
+- **RESTful API**: Clean, well-documented FastAPI backend with automatic OpenAPI documentation
+- **Vector Search**: Qdrant-powered semantic search for relevant medical information retrieval
+- **Responsive Frontend**: Modern React application with intuitive user interface
+- **Containerized Deployment**: Docker Compose setup for easy development and deployment
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+### 📊 **Observability & Monitoring**
+- **Structured Logging**: Comprehensive logging using Loguru for debugging and monitoring
+- **Request Tracking**: Monitor query processing times and system performance
+- **Error Handling**: Robust error management with meaningful user feedback
 
-<h2 id="features">🚀 Features</h2>
+---
 
-1. **Symptom Checker** - Check symptoms and answer health-related queries
-2. **Rule Based Response** - Provides predefined answers for common health queries
-3. **RAG Fallback** - Retrieves relevant details from the medical database when no rules match
-4. **Doctor Specialist Recommendation** - Suggests specialists based on disease/symptom mapping
+## 🏗️ Architecture
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+MediBot follows a modern, microservices-inspired architecture:
 
-![GSSoC Logo](/AI-health-chatbot/client/public/gssoc%20logo.png)
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   React Client  │    │   FastAPI API   │    │ Qdrant Vector   │
+│   (Frontend)    │◄──►│   (Backend)     │◄──►│   Database      │
+│   Port: 5173    │    │   Port: 8000    │    │   Port: 6333    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                        │                        │
+         │              ┌─────────────────┐               │
+         └──────────────►│   Google        │◄──────────────┘
+                         │   Gemini AI     │
+                         └─────────────────┘
+```
 
-🌟 **Exciting News...**
+### 🔄 **Request Flow**
+1. **User Input**: User submits health query through React frontend
+2. **API Processing**: FastAPI receives and validates the request
+3. **Information Retrieval**: Qdrant vector database searches for relevant medical information
+4. **AI Generation**: Google Gemini processes the context and generates human-like responses
+5. **Safety Layer**: Response validation and mandatory disclaimer addition
+6. **User Response**: Formatted response delivered to frontend
 
-🚀 This project is now an official part of GirlScript Summer of Code – GSSoC'25! 💃🎉💻 We're thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow *AI-health-chatbot!* Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
+---
 
-👩‍💻 GSSoC is one of India’s **largest 3-month-long open-source programs** that encourages developers of all levels to contribute to real-world projects 🌍 while learning, collaborating, and growing together. 🌱
+## 🛠️ Tech Stack
 
-🌈 With **mentorship, community support**, and **collaborative coding**, it's the perfect platform for developers to:
+### **Backend**
+- ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi) **FastAPI** - High-performance Python web framework
+- ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) **Python 3.11+** - Core programming language
+- ![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=flat&logo=pydantic&logoColor=white) **Pydantic** - Data validation and settings management
 
-- ✨ Improve their skills
-- 🤝 Contribute to impactful projects
-- 🏆 Get recognized for their work
-- 📜 Receive certificates and swag!
+### **AI & Machine Learning**
+- ![Google](https://img.shields.io/badge/Google%20Gemini-4285F4?style=flat&logo=google&logoColor=white) **Google Gemini** - Advanced language model for natural responses
+- ![LangChain](https://img.shields.io/badge/LangChain-121212?style=flat&logo=chainlink&logoColor=white) **LangChain** - Framework for building LLM applications
+- ![Sentence Transformers](https://img.shields.io/badge/Sentence%20Transformers-FF6B6B?style=flat) **Sentence Transformers** - Text embedding models
 
-🎉 **I can’t wait to welcome new contributors** from GSSoC 2025 to this AI-health-chatbot project family! Let's build, learn, and grow together — one commit at a time. 🔥👨‍💻👩‍💻
+### **Database & Storage**
+- ![Qdrant](https://img.shields.io/badge/Qdrant-DC382D?style=flat) **Qdrant** - Vector database for semantic search
+- ![FAISS](https://img.shields.io/badge/FAISS-0467DF?style=flat) **FAISS** - Legacy vector indexing (being phased out)
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+### **Frontend**
+- ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) **React 18** - Modern JavaScript library for building user interfaces
+- ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white) **Vite** - Lightning-fast build tool
+- ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white) **Tailwind CSS** - Utility-first CSS framework
 
-## 🧰 Tech Stack
+### **DevOps & Deployment**
+- ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white) **Docker & Docker Compose** - Containerization platform
+- ![Loguru](https://img.shields.io/badge/Loguru-306998?style=flat) **Loguru** - Advanced Python logging
 
-* **Streamlit** – Interactive web app framework for the chatbot UI
-* **Python** – Core programming language for backend logic
-* **LangChain** – Orchestration framework for building the RAG pipeline
-* **Groq API** – High-performance LLM used for natural language responses
-* **FAISS** – Vector database for fast similarity search in retrieved documents
-* **Hugging Face Transformers** – Embedding model for converting medical texts into vector representations
+---
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+## 📂 Project Structure
 
-<h2 id="project-structure">📂 Project Structure</h2>
-
-```plaintext
+```
 AI-health-chatbot/
-│   .gitignore
-│   app.py                     # Main Streamlit application
-│   chat_history_2025...txt    # Stored user chat history
-│   CODE_OF_CONDUCT.md         # Contribution guidelines for behavior
-│   CONTRIBUTING.md            # Steps for contributing to the project
-│   LICENSE                    # MIT License
-│   medical_agent.py           # AI agent logic for health queries
-│   README.md                  # Project documentation
-│   requirements.txt           # Python dependencies
-│   ROADMAP.md                 # Future development plans
-│   ✨ Add Web-Based Interface with Streamlit
-│
-├───Build
-│       temp                   # Build-related files
-│
-├───DoctorSpecialistRecommend
-│       Disease_Description.csv
-│       doctor_spec.py         # Doctor recommendation logic
-│       Doctor_Specialist.csv
-│       Doctor_Versus_Disease.csv
-│       Original_Dataset.csv
-│
-├───Medical_DataBase
-│       index.faiss            # FAISS index for vector search
-│       index.pkl              # Pickled embeddings
+├── 📁 backend/                          # Backend API and services
+│   ├── 📁 app/
+│   │   ├── 📁 config/                   # Configuration management
+│   │   │   └── 📄 __init__.py
+│   │   ├── 📁 models/                   # Pydantic models and schemas
+│   │   │   └── 📄 schemas.py
+│   │   ├── 📁 routers/                  # FastAPI route handlers
+│   │   │   ├── 📄 chat.py              # Main chat endpoint
+│   │   │   └── 📄 rag.py               # RAG pipeline endpoints
+│   │   ├── 📁 services/                 # Business logic and AI services
+│   │   │   ├── 📁 rag/                 # RAG implementation
+│   │   │   │   ├── 📄 generation/      # AI response generation
+│   │   │   │   ├── 📄 ingestion/       # Document processing
+│   │   │   │   └── 📄 retrieval/       # Information retrieval
+│   │   │   ├── 📄 medical_agent.py     # Main AI agent logic
+│   │   │   └── 📄 symptom_checker.py   # Symptom analysis
+│   │   └── 📄 main.py                  # FastAPI application entry point
+│   ├── 📄 docker-compose.yml           # Docker services configuration
+│   ├── 📄 Dockerfile                   # Backend container definition
+│   ├── 📄 requirements.txt             # Python dependencies
+│   └── 📄 .env.example                # Environment variables template
+├── 📁 client/                          # React frontend application
+│   ├── 📁 public/                      # Static assets
+│   ├── 📁 src/
+│   │   ├── 📁 api/                     # API communication layer
+│   │   ├── 📁 components/              # Reusable React components
+│   │   ├── 📁 pages/                   # Application pages
+│   │   └── 📄 main.jsx                # React entry point
+│   ├── 📄 package.json                # Node.js dependencies
+│   └── 📄 vite.config.js              # Vite configuration
+├── 📁 data/                           # Medical knowledge base
+│   └── 📁 medical_knowledge/
+│       └── 📄 medlineplus_structured.json
+├── 📁 DoctorSpecialistRecommend/      # Doctor recommendation system
+│   ├── 📄 Disease_Description.csv
+│   ├── 📄 Doctor_Specialist.csv
+│   └── 📄 doctor_spec.py
+├── 📄 README.md                       # Project documentation
+├── 📄 CONTRIBUTING.md                 # Contribution guidelines
+├── 📄 CODE_OF_CONDUCT.md             # Community standards
+├── 📄 LICENSE                        # MIT License
+└── 📄 ROADMAP.md                     # Development roadmap
 ```
-
-<<<<<<< HEAD
-
-##  Another Documentation 
-AI-health-chatbot-1/
-├─ app/
-├─ data/
-├─ nlp/
-├─ scripts/
-├─ requirements.txt
-├─ README.md   
-
-# AI Health Chatbot
-
-Medibot is a Streamlit-based AI health assistant that provides symptom checking, health guidance, and doctor recommendations using NLP and Retrieval-Augmented Generation (RAG).
 
 ---
 
-## 🚀 New Feature: NLP Enhancement (Multilingual Support)
+## 🚀 Quick Start
 
-- Added translation pipeline (English ↔ Hindi, Marathi, Telugu).
-- Integrated multilingual embeddings with FAISS.
-- Added language selector in Streamlit UI.
-- Ensured responses maintain medical safety disclaimer.
+### Prerequisites
 
-### How to Run:
-1. `pip install -r requirements.txt`
-2. `python scripts/index_docs.py`
-3. `streamlit run app/streamlit_app.py`
+Before you begin, ensure you have the following installed:
+
+- ![Docker](https://img.shields.io/badge/Docker-Required-2496ED?style=flat&logo=docker&logoColor=white) **[Docker Desktop](https://www.docker.com/get-started/)** - Essential for running the containerized backend
+- ![Node.js](https://img.shields.io/badge/Node.js-16+-339933?style=flat&logo=node.js&logoColor=white) **Node.js 16+** - For frontend development
+- ![Git](https://img.shields.io/badge/Git-Required-F05032?style=flat&logo=git&logoColor=white) **Git** - Version control system
+
+### 🔧 Backend Setup
+
+1. **Clone the Repository**
+   ```
+   git clone https://github.com/CharithaReddy18/AI-health-chatbot.git
+   cd AI-health-chatbot
+   ```
+
+2. **Navigate to Backend Directory**
+   ```
+   cd backend
+   ```
+
+3. **Configure Environment Variables**
+   
+   Create a `.env` file in the `backend` directory:
+   ```
+   cp .env.example .env
+   ```
+   
+   Edit the `.env` file and add your API keys:
+   ```
+   # Required: Google AI API Key
+   GOOGLE_API_KEY=your_google_gemini_api_key_here
+   
+   # Optional: Alternative LLM providers
+   GROQ_API_KEY=your_groq_api_key_here
+   
+   # Database Configuration
+   QDRANT_URL=http://qdrant:6333
+   
+   # Application Settings
+   DEBUG=true
+   ```
+
+4. **Build and Start Services (First Time)**
+   ```
+   docker-compose up --build
+   ```
+   
+   This command will:
+   - Build the FastAPI application container
+   - Download and start the Qdrant vector database
+   - Install all Python dependencies
+   - Initialize the medical knowledge base
+
+5. **Verify Backend is Running**
+   
+   Once the containers are up, verify the services:
+   - **API Documentation**: [http://localhost:8000/docs](http://localhost:8000/docs)
+   - **API Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
+   - **Qdrant Dashboard**: [http://localhost:6333/dashboard](http://localhost:6333/dashboard)
+
+### 🎨 Frontend Setup
+
+1. **Navigate to Client Directory**
+   ```
+   cd client  # From the project root directory
+   ```
+
+2. **Install Dependencies**
+   ```
+   npm install
+   ```
+
+3. **Start Development Server**
+   ```
+   npm run dev
+   ```
+
+4. **Access the Application**
+   
+   Open your browser and navigate to [http://localhost:5173](http://localhost:5173)
+
+### 🔄 Subsequent Runs
+
+For future development sessions:
+
+**Backend**: 
+```
+cd backend
+docker-compose up  # No --build flag needed unless dependencies change
+```
+
+**Frontend**: 
+```
+cd client
+npm run dev
+```
+
+> 💡 **Pro Tip**: If you modify `requirements.txt`, remember to rebuild with `docker-compose up --build`
 
 ---
 
-## Features
-- Symptom checking
-- Doctor recommendation
-- Medical knowledge retrieval
-- **NEW: Multilingual support (Hindi, Marathi, Telugu, English)** ✅
+## ⚙️ Configuration
+
+### 🔐 Environment Variables
+
+| Variable | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `GOOGLE_API_KEY` | Google Gemini API key for AI responses | ✅ Yes | None |
+| `GROQ_API_KEY` | Alternative Groq API key | ❌ Optional | None |
+| `QDRANT_URL` | Qdrant database connection URL | ❌ Optional | `http://qdrant:6333` |
+| `DEBUG` | Enable debug logging | ❌ Optional | `false` |
+
+### 🎛️ Application Settings
+
+The application uses Pydantic for configuration management. Key settings include:
+
+- **Embedding Model**: `sentence-transformers/all-MiniLM-L6-v2`
+- **Vector Database**: Qdrant with 384-dimensional embeddings
+- **LLM Temperature**: Low temperature (0.0-0.3) for consistent medical responses
+- **Chunking Strategy**: 500 characters with 50-character overlap
 
 ---
 
-## Disclaimer
-This chatbot provides general health information and is **not a substitute for professional medical advice**.
+## 🧪 Testing the System
+
+### 🔍 **Basic Functionality Test**
+
+1. **Start the Application** (both backend and frontend)
+
+2. **Navigate to the Symptom Checker** in your browser
+
+3. **Test Knowledge-Based Queries** (should use medical database):
+   ```
+   "What are the common causes of a headache?"
+   "I have a sore throat and fever. What could this be?"
+   "Can you explain what diabetes is?"
+   ```
+
+4. **Test Graceful Fallback Responses** (for topics not in database):
+   ```
+   "What's the best diet for weight loss?"
+   "How can I improve my sleep quality?"
+   "Can you suggest home remedies for stress?"
+   ```
+
+### 🏥 **Safety Feature Tests**
+
+5. **Verify Safety Disclaimers**:
+   - Ensure every response ends with medical disclaimer
+   - Confirm bot never claims to be a real doctor
+
+6. **Test Emergency Scenarios**:
+   ```
+   "I'm having severe chest pain and shortness of breath"
+   "My child has a very high fever and is unresponsive"
+   ```
+
+### 📊 **API Testing**
+
+7. **Direct API Testing**:
+   - Visit [http://localhost:8000/docs](http://localhost:8000/docs)
+   - Test the `POST /api/chat` endpoint
+   - Example request body:
+     ```
+     {
+       "query": "What are the symptoms of the flu?"
+     }
+     ```
+
+### ✅ **Expected Behaviors**
+
+- **Natural Responses**: Bot should never mention "context" or "documents"
+- **Consistent Disclaimers**: Every response should include safety warnings
+- **Appropriate Fallbacks**: Unknown topics should receive general wellness advice
+- **Professional Tone**: Empathetic and helpful communication style
 
 ---
-=======
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
->>>>>>> e97a506a8cec23ea3742d75cdeb2cad009baf050
 
-<h2 id="installation-setup"> ⚡ Installation & Setup</h2>
+## 🔬 API Documentation
 
-**1️⃣ Clone the repository**
+### 📡 **Main Endpoints**
 
-```bash
-git clone https://github.com/yourusername/AI-health-chatbot.git
-cd AI-health-chatbot
+#### `POST /api/chat`
+Primary chat endpoint for health queries.
+
+**Request Body:**
+```
+{
+  "query": "string"  // User's health question
+}
 ```
 
-**2️⃣ Install dependencies**
-
-```bash
-pip install -r requirements.txt
+**Response:**
+```
+{
+  "success": true,
+  "query": "What are the symptoms of the flu?",
+  "response": "The flu typically presents with...",
+  "sources": ["medical_knowledge"],
+  "processing_time": 1.23
+}
 ```
 
-**3️⃣ Set Environment Variables**
+#### `GET /health`
+System health check endpoint.
 
-```env
-GROQ_API_KEY=your_groq_api_key
-HUGGINGFACE_API_KEY=your_api_key
+**Response:**
+```
+{
+  "status": "healthy",
+  "services": {
+    "api": "operational",
+    "vector_db": "connected",
+    "llm": "available"
+  }
+}
 ```
 
-**4️⃣ Run the Streamlit app**
+### 📋 **Request/Response Models**
 
-```bash
-python -m streamlit run WellnessResourceHub.py
-```
+- **MedicalQueryRequest**: Input validation for user queries
+- **MedicalQueryResponse**: Structured response format
+- **SystemStatusResponse**: Health check information
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+---
 
-<h2 id="future-advancements">🚀 Future Advancements</h2>
+## 🎯 Features Roadmap
 
-* **Multi-language Support** – Enable chatbot to respond in multiple languages for broader accessibility.
-* **Voice Input & Output** – Add speech-to-text and text-to-speech for hands-free interaction.
-* **Conversational Memory** – Enable LLM to remember previous interactions and maintain context.
-* **Mobile App Integration** – Bring Medibot to Android/iOS platforms.
+### 🔄 **Current Phase (v2.0)**
+- ✅ Advanced RAG pipeline with Qdrant
+- ✅ Google Gemini integration
+- ✅ Human-like conversation prompts
+- ✅ Docker containerization
+- ✅ React frontend with modern UI
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+### 🚀 **Next Phase (v2.1)**
+- 🔄 Enhanced medical knowledge base
+- 🔄 Conversation memory and context
+- 🔄 User authentication and history
+- 🔄 Mobile-responsive design improvements
 
-<h2 id="roadmap">📌 Roadmap</h2>
+### 🌟 **Future Enhancements (v3.0+)**
+- 🔮 Multi-language support (Hindi, Spanish, etc.)
+- 🔮 Voice input and output capabilities
+- 🔮 Integration with wearable devices
+- 🔮 Telemedicine appointment booking
+- 🔮 Advanced symptom tracking
+- 🔮 Personalized health recommendations
 
-See the [ROADMAP.md](./ROADMAP.md) for upcoming features and plans.
+### 🏥 **Long-term Vision**
+- 🔮 Integration with Electronic Health Records (EHR)
+- 🔮 Real-time vital signs monitoring
+- 🔮 AI-powered health trend analysis
+- 🔮 Collaboration with healthcare providers
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+---
 
-## Issue Creation ✴
+## 🤝 Contributing
 
-Report bugs and issues or propose improvements through our GitHub repository's "Issues" tab.
+We welcome contributions from developers of all skill levels! MediBot is part of **GirlScript Summer of Code (GSSoC) 2025**, one of India's largest open-source programs.
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+### 🌟 **Ways to Contribute**
 
-## Contribution Guidelines 📑
+- 🐛 **Bug Fixes**: Help identify and resolve issues
+- ✨ **New Features**: Implement exciting new functionality  
+- 📚 **Documentation**: Improve guides and API docs
+- 🎨 **UI/UX**: Enhance user experience and design
+- 🔧 **Performance**: Optimize system efficiency
+- 🔒 **Security**: Strengthen data protection
+- 🧪 **Testing**: Expand test coverage
 
-- Firstly Star (⭐) the Repository
-- Fork the Repository and create a new branch for any updates/changes/issue you are working on.
-- Start Coding and do changes.
-- Commit your changes
-- Create a Pull Request which will be reviewed and suggestions would be added to improve it.
-- Add Screenshots and updated website links to help us understand what changes is all about.
+### 📋 **Getting Started**
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+1. **Fork the Repository**: Click the fork button on GitHub
+2. **Create a Branch**: `git checkout -b feature/your-feature-name`
+3. **Make Changes**: Implement your improvements
+4. **Write Tests**: Ensure your changes work correctly
+5. **Submit PR**: Create a pull request with clear description
 
-## Contributing is fun🧡
+### 📖 **Contribution Guidelines**
 
-We welcome all contributions and suggestions!
-Whether it's a new feature, design improvement, or a bug fix - your voice matters 💜
+- Follow the [Contributing Guidelines](CONTRIBUTING.md)
+- Adhere to the [Code of Conduct](CODE_OF_CONDUCT.md)
+- Ensure medical accuracy and safety in health-related changes
+- Include tests for new functionality
+- Update documentation as needed
 
-Your insights are invaluable to us. Reach out to us team for any inquiries, feedback, or concerns.
+### 🏆 **Recognition**
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+Contributors will be:
+- Listed in our Contributors section
+- Eligible for GSSoC certificates and swag
+- Recognized in release notes
+- Invited to join our community discussions
 
-<h2 id="acknowledgments">🙏 Acknowledgments</h2>
+---
 
-- Thanks to all contributors of this project 
-- Special shoutout to **GirlScript Summer of Code (GSSoC’25)** for the amazing community and support!
-- Built with dedication, collaboration, and lots of chai
+## 🙏 Acknowledgments
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+### 🌟 **Special Thanks**
 
-<h2 id="contact">📞 Contact</h2>
+- **GirlScript Summer of Code (GSSoC) 2025** for providing an amazing platform for open-source collaboration
+- **Google AI** for providing access to Gemini models
+- **The Medical Community** for open medical datasets and knowledge sharing
+- **Open Source Contributors** who make projects like this possible
 
-- **GitHub Issues**: [Report bugs or request features](https://github.com/CharithaReddy18/AI-health-chatbot/issues)
-- **Email**: Contact the maintainers for collaboration opportunities
+### 🎓 **Educational Resources**
 
-*Feel free to reach out with any questions or feedback!*
+This project serves as an excellent learning resource for:
+- Modern full-stack development with Python and React
+- Implementing RAG (Retrieval-Augmented Generation) systems
+- Working with vector databases and semantic search
+- Building responsible AI applications for healthcare
+- Docker containerization and microservices architecture
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+---
 
-<h2 id="how-to-contribute">🤝How to Contribute</h2>
+## 📄 License
 
-We love contributions from the community! Whether it's a bug report, a new feature, or a documentation improvement, we appreciate your help.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-***How to Contribute***
+The MIT License allows for:
+- ✅ Commercial use
+- ✅ Modification
+- ✅ Distribution
+- ✅ Private use
 
-1.  **Fork the repository** and create a new branch for your changes.
-2.  **Make your changes** and ensure everything is working as expected.
-3.  **Submit a pull request** with a clear description of your changes.
+---
 
-***Found a Bug?***
+## 👥 Contributors
 
--   Check the [issue tracker](https://github.com/CharithaReddy18/AI-health-chatbot/issues) to see if the bug has already been reported.
--   If not, open a new issue and provide as much detail as possible.
-
-***Have a Feature Idea?***
-
--   We'd love to hear it! Open an issue to discuss your idea.
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="contributing">🤝 Contributing</h2>
-
-We welcome contributions from developers of all skill levels! Here are some ways you can contribute:
-
-### Ways to Contribute
-
-- 🐛 Bug fixes - Help us identify and fix bugs
-- ✨ New features - Suggest and implement new functionality
-- 📚 Documentation - Improve our docs and guides
-- 🎨 UI/UX improvements - Make the platform more user-friendly
-- 🔧 Performance optimizations - Help make AI-health-chatbot faster and more efficient
-- 📱 Mobile responsiveness - Improve the mobile experience
-- 🔒 Security enhancements - Help keep user data safe
-
-*Thank you to everyone who has made AI-health-chatbot better! 💚*
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="code-of-conduct">📜 Code of Conduct</h2>
-
-Please refer to the [`Code of Conduct`](https://github.com/CharithaReddy18/AI-health-chatbot/blob/main/CODE_OF_CONDUCT.md) for details on contributing guidelines and community standards.
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="contribution-guidelines">🤝👤 Contribution Guidelines</h2>
-
-We love our contributors! If you'd like to help, please check out our [`CONTRIBUTING.md`](https://github.com/CharithaReddy18/AI-health-chatbot/blob/main/CONTRIBUTING.md) file for guidelines.
-
->Thank you once again to all our contributors who has contributed to **AI-health-chatbot!** Your efforts are truly appreciated. 💖👏
-
-<!-- Contributors badge (auto-updating) -->
-
-[![Contributors](https://img.shields.io/github/contributors/CharithaReddy18/AI-health-chatbot?style=for-the-badge)](https://github.com/CharithaReddy18/AI-health-chatbot/contributors)
-
-<!-- Contributors avatars (auto-updating) -->
-<p align="left">
-  <a href="https://github.com/CharithaReddy18/AI-health-chatbot/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=CharithaReddy18/AI-health-chatbot" alt="Contributors" />
-  </a>
-</p>
-
-See the full list of contributors and their contributions on the [`GitHub Contributors Graph`](https://github.com/CharithaReddy18/AI-health-chatbot/graphs/contributors).
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 align="center">
-<p style="font-family:var(--ff-philosopher);font-size:3rem;"><b> Show some <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" alt="Red Heart" width="40" height="40" /> by starring this awesome repository!
-</p>
-</h2>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="suggestions-feedback">💡 Suggestions & Feedback</h2>
-
-Feel free to open issues or discussions if you have any feedback, feature suggestions, or want to collaborate!
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="show-your-support">🙌 Show Your Support</h2>
-
-*If you find AI-health-chatbot project helpful, give it a star! ⭐ to support more such educational initiatives:*
-
-- ⭐ **Starring the repository**
-- 🐦 **Sharing on social media**
-- 💬 **Telling your friends and colleagues**
-- 🤝 **Contributing to the project**
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="license">📄 License</h2>
-
-This project is licensed under the MIT License - see the [`License`](https://github.com/CharithaReddy18/AI-health-chatbot/blob/main/LICENSE) file for details.
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="stargazers">⭐ Stargazers</h2>
-
-<div align="center">
-  <a href="https://github.com/CharithaReddy18/AI-health-chatbot/stargazers">
-    <img src="https://reporoster.com/stars/CharithaReddy18/AI-health-chatbot?type=svg&limit=100&names=false" alt="Stargazers" />
-  </a>
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="forkers">🍴 Forkers</h2>
-
-<div align="center">
-  <a href="https://github.com/CharithaReddy18/AI-health-chatbot/members">
-    <img src="https://reporoster.com/forks/CharithaReddy18/AI-health-chatbot?type=svg&limit=100&names=false" alt="Forkers" />
-  </a>
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<h2 id="project-admin" align="center">🧑‍💻Project Admin:</h2>
+### 🧑‍💼 **Project Admin**
 <table>
 <tr>
-<td align="center">
-<a href="https://github.com/CharithaReddy18"><img src="https://avatars.githubusercontent.com/u/181075868?v=4" height="140px" width="140px" alt="Nayini Charitha Reddy"></a><br><sub><b>Nayini Charitha Reddy</b><br><a href="https://www.linkedin.com/in/charithareddy18/"><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/278833250-adb040ea-e3ef-446e-bcd4-3e8d7d4c0176.png" width="45px" height="45px"></a>
-</sub>
-</td>
+    <td align="center">
+        <a href="https://github.com/CharithaReddy18">
+            <img src="https://github.com/CharithaReddy18.png" width="100px;" alt="Charitha Reddy"/>
+            <br />
+            <sub><b>Nayini Charitha Reddy</b></sub>
+        </a>
+        <br />
+        <sub>Project Maintainer</sub>
+    </td>
 </tr>
 </table>
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+### 👨‍🏫 **Mentors (GSSoC '25)**
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/anshiagrawal22">
+            <img src="https://github.com/anshiagrawal22.png" width="100px;" alt="Anshi Agarwal"/>
+            <br />
+            <sub><b>Anshi Agarwal</b></sub>
+        </a>
+        <br />
+        <sub>Technical Mentor</sub>
+    </td>
+</tr>
+</table>
 
-<h2 align="center">👨‍🏫Mentors – AI-health-chatbot (GSSoC'25)</h2>
+### 🤝 **All Contributors**
 
-| Role          | Name               | GitHub Profile                                      | LinkedIn Profile                                                        |
-| ------------- | ------------------ | --------------------------------------------------- | ----------------------------------------------------------------------- |
-| Mentor 1 | Anshi Agarwal | [anshiagrawal22](https://github.com/anshiagrawal22)  | [anshiagrawal22](https://www.linkedin.com/in/anshiagrawal22/) |
+Thanks to all the amazing people who have contributed to MediBot:
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+<a href="https://github.com/CharithaReddy18/AI-health-chatbot/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=CharithaReddy18/AI-health-chatbot" />
+</a>
 
-<h1 align="center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25" height="25" /> Give us a Star and let's make magic! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25" height="25" /></h1>
+---
 
-<p align="center">
-     <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mirror%20Ball.png" alt="Mirror Ball" width="150" height="150" />
-</p>
+## 📊 Project Stats
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+<div align="center">
 
-<h3 align="center"> 👨‍💻 Built with ❤️ by AI-health-chatbot Team</h3>
-<h4 align="center"> ❤️ Nayini Charitha Reddy and Contributors ❤️ </h4>
-<p align="center">
-  <a href="https://github.com/CharithaReddy18/AI-health-chatbot/issues">Open an Issue</a> | <a href="https://github.com/CharithaReddy18/AI-health-chatbot">🌟 Star on GitHub</a>
- </p>
+![GitHub Stars](https://img.shields.io/github/stars/CharithaReddy18/AI-health-chatbot?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/CharithaReddy18/AI-health-chatbot?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/CharithaReddy18/AI-health-chatbot)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/CharithaReddy18/AI-health-chatbot)
+![GitHub Contributors](https://img.shields.io/github/contributors/CharithaReddy18/AI-health-chatbot)
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
+</div>
 
-<p align="center">
-  <a href="#top" style="font-size: 18px; padding: 8px 16px; display: inline-block; border: 1px solid #ccc; border-radius: 6px; text-decoration: none;">
-    ⬆️ Back to Top
-  </a>
-</p>
+---
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+## 🌟 Show Your Support
 
-> Ready to show off your coding achievements? Get started with **AI-health-chatbot** today! 🚀
+If you find MediBot helpful, please consider:
+
+- ⭐ **Starring this repository**
+- 🐦 **Sharing on social media**
+- 💬 **Telling friends and colleagues**
+- 🤝 **Contributing to the project**
+- 📝 **Providing feedback and suggestions**
+
+---
+
+## 📞 Contact & Support
+
+- 🐛 **Issues**: [GitHub Issues](https://github.com/CharithaReddy18/AI-health-chatbot/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/CharithaReddy18/AI-health-chatbot/discussions)
+- 📧 **Email**: Contact maintainers for collaboration opportunities
+- 🔗 **LinkedIn**: Connect with the project team
+
+---
+
+<div align="center">
+
+### 🚀 Ready to revolutionize healthcare with AI?
+
+**[Get Started Now](#-quick-start)** | **[View Documentation](#-api-documentation)** | **[Join the Community](#-contributing)**
+
+---
+
+**Built with ❤️ by the MediBot team and the amazing open-source community**
+
+*Making healthcare information accessible, one conversation at a time* 🏥✨
+
+</div>
+
+---
+
+<div align="right">
+
+**[⬆️ Back to Top](#-medibot-ai-health-assistant)**
+
+</div>
