@@ -137,44 +137,43 @@ It uses **rule-based logic** and a **RAG** (Retrieval-Augmented Generation) pipe
 <h2 id="project-structure">📂 Project Structure</h2>
 
 ```plaintext
-AI-health-chatbot/
-│   .gitignore
-│   app.py                     # Main Streamlit application
-│   chat_history_2025...txt    # Stored user chat history
-│   CODE_OF_CONDUCT.md         # Contribution guidelines for behavior
-│   CONTRIBUTING.md            # Steps for contributing to the project
-│   LICENSE                    # MIT License
-│   medical_agent.py           # AI agent logic for health queries
-│   README.md                  # Project documentation
-│   requirements.txt           # Python dependencies
-│   ROADMAP.md                 # Future development plans
-│   ✨ Add Web-Based Interface with Streamlit
+AI-HEALTH-CHATBOT/
+├── backend/                    # FastAPI Backend Application
+│   ├── app/
+│   │   ├── Medical_DataBase/   # Stores the FAISS vector index for the RAG model
+│   │   │   ├── index.faiss
+│   │   │   └── index.pkl
+│   │   ├── models/             # Pydantic schemas for data validation (schemas.py)
+│   │   ├── routers/            # Defines the API endpoints (e.g., /chat, /disease)
+│   │   │   ├── chat.py
+│   │   │   ├── disease.py
+│   │   │   └── health.py
+│   │   ├── services/           # Contains the core business logic for all features
+│   │   │   ├── disease_predictor.py
+│   │   │   ├── health_info.py
+│   │   │   ├── medical_agent.py # Manages the core RAG pipeline and LLM interaction
+│   │   │   └── symptom_checker.py
+│   │   ├── utils/              # Utility and helper functions
+│   │   ├── config.py           # Handles configuration and environment variables
+│   │   └── main.py             # The main entry point to launch the FastAPI server
+│   ├── data/                   # Directory for raw data files like CSVs
+│   └── requirements.txt        # A list of all Python dependencies
 │
-├───Build
-│       temp                   # Build-related files
+├── client/                     # React Frontend Application
+│   ├── public/                 # Contains static assets like the main index.html and icons
+│   ├── src/
+│   │   ├── api/                # Functions for making HTTP requests to the backend
+│   │   ├── assets/             # Stores local assets like images, fonts, and CSS
+│   │   ├── components/         # Reusable React components (e.g., ChatWindow, Button)
+│   │   ├── pages/              # Components representing entire pages or views
+│   │   ├── App.jsx             # The main root component of the application
+│   │   └── main.jsx            # The entry point for the React application
+│   ├── package.json            # Lists Node.js dependencies and project scripts
+│   └── vite.config.js          # Configuration file for the Vite build tool
 │
-├───DoctorSpecialistRecommend
-│       Disease_Description.csv
-│       doctor_spec.py         # Doctor recommendation logic
-│       Doctor_Specialist.csv
-│       Doctor_Versus_Disease.csv
-│       Original_Dataset.csv
-│
-├───Medical_DataBase
-│       index.faiss            # FAISS index for vector search
-│       index.pkl              # Pickled embeddings
+└── README.md                   # You are here!
 ```
 
-<<<<<<< HEAD
-
-##  Another Documentation 
-AI-health-chatbot-1/
-├─ app/
-├─ data/
-├─ nlp/
-├─ scripts/
-├─ requirements.txt
-├─ README.md   
 
 # AI Health Chatbot
 
@@ -191,8 +190,7 @@ Medibot is a Streamlit-based AI health assistant that provides symptom checking,
 
 ### How to Run:
 1. `pip install -r requirements.txt`
-2. `python scripts/index_docs.py`
-3. `streamlit run app/streamlit_app.py`
+2. `streamlit run app/WellnessResourceHub.py`
 
 ---
 
@@ -208,9 +206,6 @@ Medibot is a Streamlit-based AI health assistant that provides symptom checking,
 This chatbot provides general health information and is **not a substitute for professional medical advice**.
 
 ---
-=======
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
->>>>>>> e97a506a8cec23ea3742d75cdeb2cad009baf050
 
 <h2 id="installation-setup"> ⚡ Installation & Setup</h2>
 
@@ -230,8 +225,8 @@ pip install -r requirements.txt
 **3️⃣ Set Environment Variables**
 
 ```env
-GROQ_API_KEY=your_groq_api_key
-HUGGINGFACE_API_KEY=your_api_key
+GROQ_API_KEY="YOUR_KEY_HERE"
+HUGGINGFACE_API_KEY="YOUR_KEY_HERE"
 ```
 
 **4️⃣ Run the Streamlit app**
@@ -348,6 +343,7 @@ Please refer to the [`Code of Conduct`](https://github.com/CharithaReddy18/AI-he
 <h2 id="contribution-guidelines">🤝👤 Contribution Guidelines</h2>
 
 We love our contributors! If you'd like to help, please check out our [`CONTRIBUTING.md`](https://github.com/CharithaReddy18/AI-health-chatbot/blob/main/CONTRIBUTING.md) file for guidelines.
+
 
 >Thank you once again to all our contributors who has contributed to **AI-health-chatbot!** Your efforts are truly appreciated. 💖👏
 
