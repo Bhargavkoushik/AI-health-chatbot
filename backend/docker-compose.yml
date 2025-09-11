@@ -1,0 +1,28 @@
+services:
+  fastapi-app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - QDRANT_URL=http://qdrant:6333
+      - PYTHONPATH=/app  # Add this environment variable
+    volumes:
+      - ./app:/app/app              # This line is actually correct for development
+      - ./app/data:/app/data
+      - ./vector_data:/app/vector_data
+      - ./logs:/app/logs
+      - ./cache:/app/cache
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+
+volumes:
+  qdrant_data:
