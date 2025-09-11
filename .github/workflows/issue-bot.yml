@@ -1,0 +1,29 @@
+name: Auto-Respond to New Issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  issue_response:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Post automated comment on new issue
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Thanks for opening an issue! 🎉
+
+Your contribution helps us improve the project.
+
+Our team will review your submission as soon as possible.  
+Please make sure your issue follows the provided template to help us process it faster.
+
+Keep building awesome stuff! 🚀`
+            });
