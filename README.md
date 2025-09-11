@@ -345,7 +345,7 @@ Please refer to the [`Code of Conduct`](https://github.com/CharithaReddy18/AI-he
 We love our contributors! If you'd like to help, please check out our [`CONTRIBUTING.md`](https://github.com/CharithaReddy18/AI-health-chatbot/blob/main/CONTRIBUTING.md) file for guidelines.
 
 
->Thank you once again to all our contributors who has contributed to **AI-health-chatbot!** Your efforts are truly appreciated. 💖👏
+->Thank you once again to all our contributors who has contributed to **AI-health-chatbot!** Your efforts are truly appreciated. 💖👏
 
 <!-- Contributors badge (auto-updating) -->
 
