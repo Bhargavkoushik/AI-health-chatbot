@@ -4,6 +4,9 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  issues: write
+
 jobs:
   issue_response:
     runs-on: ubuntu-latest
@@ -12,18 +15,19 @@ jobs:
       - name: Post automated comment on new issue
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
+            const issueNumber = context.issue.number;
+            const commentBody = "Thanks for opening an issue! 🎉\n\n" +
+                                "Your contribution helps us improve the project.\n\n" +
+                                "Our team will review your submission as soon as possible.\n" +
+                                "Please make sure your issue follows the provided template to help us process it faster.\n\n" +
+                                "Keep building awesome stuff! 🚀";
+
+            await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `Thanks for opening an issue! 🎉
-
-Your contribution helps us improve the project.
-
-Our team will review your submission as soon as possible.  
-Please make sure your issue follows the provided template to help us process it faster.
-
-Keep building awesome stuff! 🚀`
+              issue_number: issueNumber,
+              body: commentBody
             });
+
+            console.log('Issue comment posted successfully.');
