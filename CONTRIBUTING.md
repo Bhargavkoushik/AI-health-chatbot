@@ -1,90 +1,103 @@
-Here’s a set of **Contribution Guidelines** tailored for your open-source project:
+# Contributing to AI-health-chatbot
 
----
+Thank you for considering contributing to AI-health-chatbot! 🎉
+We welcome contributions of all types — bug fixes, feature implementations, documentation improvements, and feedback.
 
-# Contribution Guidelines
+-> These guidelines are here to make the process smooth and collaborative for everyone.
 
-Thank you for considering contributing to **Blok**! We welcome contributions of all types, including bug fixes, feature implementations, documentation improvements, and feedback. These guidelines are here to make the process clear and smooth for everyone.
+## 🚀 How to Contribute
 
----
+### 1. Discuss Your Idea
 
-## How to Contribute
+* Before starting work on a major change, please open an **issue** in the repository.
+* Use the issue template (if available) or describe your idea clearly.
 
-### 1. **Discuss Your Idea**
-- Before starting work on a major change, please open an issue in the repository.
-- Use the **#ideas-and-feedback** channel in our [Discord community](https://discord.gg/QXhHzw7azs) for discussions.
+### 2. Fork and Clone
 
-### 2. **Fork and Clone**
-- Fork the repository to your GitHub account.
-- Clone the forked repository to your local machine.
+* Fork this repository to your GitHub account.
+* Clone the forked repository to your local machine:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/blok.git
-cd blok
+git clone https://github.com/CharithaReddy18/AI-health-chatbot.git
+cd AI-health-chatbot
 ```
 
-### 3. **Set Up Your Environment**
-- Follow the instructions in the `README.md` to set up your development environment.
-- Run tests to ensure everything works as expected.
+### 3. Set Up Your Environment
 
-### 4. **Work on Your Contribution**
-- Create a new branch for your work:
-  ```bash
-  git checkout -b feature/your-feature-name
-  ```
-- Follow the coding style and conventions used in the project.
-- Write clear, concise, and well-documented code.
-- If adding a new feature, include relevant tests.
+* Check the ['README.md'](README.md) for setup instructions.
+* Install requirements based on requirements.txt.
 
-### 5. **Commit Your Changes**
-- Write meaningful commit messages:
-  ```bash
-  git commit -m "Add: Feature description"
-  ```
-- Push your changes to your fork:
-  ```bash
-  git push origin feature/your-feature-name
-  ```
+### 4. Work on Your Contribution
 
-### 6. **Submit a Pull Request**
-- Open a pull request from your branch to the `main` branch of the original repository.
-- Use the pull request template (if available) to provide details about your changes.
-- Ensure that all automated tests pass before submission.
+* Create a new branch for your work:
 
----
+```bash
+git checkout -b feature/your-feature-name
+```
 
-## Code Style and Standards
-- Use ESLint to ensure code consistency.
-- Adhere to the project's architectural patterns and modular design principles.
-- Avoid introducing unnecessary dependencies.
+* Follow the coding style and conventions used in the project.
+* Write clear, well-documented code.
+* Add tests if applicable.
 
----
+### 5. Commit Your Changes
 
-## Reporting Issues
-If you encounter a bug or have a feature request:
-1. Check the Issues to ensure it hasn’t been reported.
+* Use meaningful commit messages:
+
+```bash
+git commit -m "Add: Short description of your change"
+```
+
+* Push your changes:
+
+```bash
+git push origin feature/your-feature-name
+```
+
+### 6. Submit a Pull Request
+
+* Open a Pull Request (PR) to the `main` branch of this repository.
+* Fill out the PR template (if available).
+* Make sure all checks/tests pass before requesting review.
+
+
+## 🧩 Code Style and Standards
+
+* Use ESLint / Prettier (if configured) for consistent formatting.
+* Follow naming conventions and keep code modular.
+* Avoid introducing unnecessary requirements.
+
+
+## 🐛 Reporting Issues
+
+If you find a bug or have a feature request:
+
+1. Check the existing issues first.
 2. Open a new issue with:
-   - A clear and descriptive title.
-   - Steps to reproduce the issue (if applicable).
-   - Expected and actual behavior.
 
----
+   * A clear and descriptive title
+   * Steps to reproduce (if it’s a bug)
+   * Expected vs. actual behavior
 
-## Documentation Contributions
-- For documentation edits, update the relevant markdown files in the `docs/` directory.
-- Follow a clear and concise writing style.
 
----
+## 📖 Documentation Contributions
 
-## Community and Conduct
-- Be respectful and collaborative when interacting with others.
-- Adhere to the project's [Code of Conduct](CODE_OF_CONDUCT.md).
+* Update relevant Markdown files (`README.md`, `docs/`) for docs-related changes.
+* Keep writing clear, concise, and beginner-friendly.
 
----
 
-## Need Help?
-If you have questions or need help, feel free to:
-- Join our [Discord community](https://discord.gg/QXhHzw7azs).
-- Open an issue with the `question` label.
+## 🤝 Community and Conduct
 
-We’re excited to collaborate with you and improve **Blok** together!
+* Be respectful and collaborative in all interactions.
+* Follow the project’s [Code of Conduct](CODE_OF_CONDUCT.md).
+
+
+## ❓ Need Help?
+
+If you have any questions:
+
+* Open an issue with the `question` label.
+* Tag project maintainers for clarification.
+
+
+We’re excited to collaborate with you and improve **AI-health-chatbot** together! 💡
+

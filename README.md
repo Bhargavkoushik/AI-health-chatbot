@@ -133,6 +133,63 @@ MediBot follows a modern, microservices-inspired architecture:
 
 ## 📂 Project Structure
 
+
+```plaintext
+AI-HEALTH-CHATBOT/
+├── backend/                    # FastAPI Backend Application
+│   ├── app/
+│   │   ├── Medical_DataBase/   # Stores the FAISS vector index for the RAG model
+│   │   │   ├── index.faiss
+│   │   │   └── index.pkl
+│   │   ├── models/             # Pydantic schemas for data validation (schemas.py)
+│   │   ├── routers/            # Defines the API endpoints (e.g., /chat, /disease)
+│   │   │   ├── chat.py
+│   │   │   ├── disease.py
+│   │   │   └── health.py
+│   │   ├── services/           # Contains the core business logic for all features
+│   │   │   ├── disease_predictor.py
+│   │   │   ├── health_info.py
+│   │   │   ├── medical_agent.py # Manages the core RAG pipeline and LLM interaction
+│   │   │   └── symptom_checker.py
+│   │   ├── utils/              # Utility and helper functions
+│   │   ├── config.py           # Handles configuration and environment variables
+│   │   └── main.py             # The main entry point to launch the FastAPI server
+│   ├── data/                   # Directory for raw data files like CSVs
+│   └── requirements.txt        # A list of all Python dependencies
+│
+├── client/                     # React Frontend Application
+│   ├── public/                 # Contains static assets like the main index.html and icons
+│   ├── src/
+│   │   ├── api/                # Functions for making HTTP requests to the backend
+│   │   ├── assets/             # Stores local assets like images, fonts, and CSS
+│   │   ├── components/         # Reusable React components (e.g., ChatWindow, Button)
+│   │   ├── pages/              # Components representing entire pages or views
+│   │   ├── App.jsx             # The main root component of the application
+│   │   └── main.jsx            # The entry point for the React application
+│   ├── package.json            # Lists Node.js dependencies and project scripts
+│   └── vite.config.js          # Configuration file for the Vite build tool
+│
+└── README.md                   # You are here!
+```
+
+
+# AI Health Chatbot
+
+Medibot is a Streamlit-based AI health assistant that provides symptom checking, health guidance, and doctor recommendations using NLP and Retrieval-Augmented Generation (RAG).
+
+---
+
+## 🚀 New Feature: NLP Enhancement (Multilingual Support)
+
+- Added translation pipeline (English ↔ Hindi, Marathi, Telugu).
+- Integrated multilingual embeddings with FAISS.
+- Added language selector in Streamlit UI.
+- Ensured responses maintain medical safety disclaimer.
+
+### How to Run:
+1. `pip install -r requirements.txt`
+2. `streamlit run app/WellnessResourceHub.py`
+
 ```
 AI-health-chatbot/
 ├── 📁 backend/                          # Backend API and services
@@ -275,6 +332,7 @@ cd backend
 docker-compose up  # No --build flag needed unless dependencies change
 ```
 
+
 **Frontend**: 
 ```
 cd client
@@ -309,7 +367,14 @@ The application uses Pydantic for configuration management. Key settings include
 
 ## 🧪 Testing the System
 
+
+```env
+GROQ_API_KEY="YOUR_KEY_HERE"
+HUGGINGFACE_API_KEY="YOUR_KEY_HERE"
+```
+
 ### 🔍 **Basic Functionality Test**
+
 
 1. **Start the Application** (both backend and frontend)
 
@@ -515,6 +580,10 @@ The MIT License allows for:
 
 ## 👥 Contributors
 
+
+
+->Thank you once again to all our contributors who has contributed to **AI-health-chatbot!** Your efforts are truly appreciated. 💖👏
+
 ### 🧑‍💼 **Project Admin**
 <table>
 <tr>
@@ -529,6 +598,7 @@ The MIT License allows for:
     </td>
 </tr>
 </table>
+
 
 ### 👨‍🏫 **Mentors (GSSoC '25)**
 <table>
