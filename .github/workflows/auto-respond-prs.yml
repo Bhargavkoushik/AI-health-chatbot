@@ -1,8 +1,12 @@
 name: Auto-Respond to New Pull Requests
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
 
 jobs:
   pr_response:
@@ -12,11 +16,19 @@ jobs:
       - name: Post automated comment on new PR
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.issues.createComment({
-              issue_number: context.payload.pull_request.number,
+            const prNumber = context.issue.number;
+            const commentBody = "🚀 Thanks for submitting a Pull Request!\n\n" +
+                                "Our team will review it as soon as possible.\n" +
+                                "Please double-check that your PR follows the guidelines, includes a proper description, and references the related issue number.\n\n" +
+                                "If any merge conflicts pop up, kindly resolve them before the PA reviews your PR.\n\n" +
+                                "Happy coding! 🌟";
+
+            await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "🚀 Thank you for submitting a Pull Request!\n\nWe appreciate your contribution. Our team will review your PR shortly. Please ensure your PR follows the repository guidelines, includes a clear description of the changes, and references the related issue number.\n\nIf there are any merge conflicts, please resolve them before the PA reviews your PR.\n\nYour effort helps improve this project — happy coding! 🌟"
+              issue_number: prNumber,
+              body: commentBody
             });
+
+            console.log('PR comment posted successfully.');
