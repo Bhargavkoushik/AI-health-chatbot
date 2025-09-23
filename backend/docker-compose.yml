@@ -5,10 +5,14 @@ services:
       - "8000:8000"
     environment:
       - QDRANT_URL=http://qdrant:6333
-      - PYTHONPATH=/app  # Add this environment variable
+      - PYTHONPATH=/app
+      # NEW: Session management environment variables
+      - SESSION_STORAGE_PATH=/app/data/sessions
+      - SESSION_MAX_AGE_HOURS=24
     volumes:
-      - ./app:/app/app              # This line is actually correct for development
+      - ./app:/app/app
       - ./app/data:/app/data
+      - ./data/sessions:/app/data/sessions  # NEW: Session storage volume
       - ./vector_data:/app/vector_data
       - ./logs:/app/logs
       - ./cache:/app/cache

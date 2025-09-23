@@ -5,15 +5,12 @@ import { Outlet } from 'react-router-dom'
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50 overflow-hidden">
         <Navbar/>
-        <div className='flex flex-col min-h-screen overflow-x-hidden pt-20'>
-            <div className='flex-1 w-full'>
-                <Outlet/>
-            </div>
-        </div>
+        <main className='min-h-screen'>
+            <Outlet/>
+        </main>
         <Footer/>
-      
     </div>
   )
 }
