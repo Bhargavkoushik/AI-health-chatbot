@@ -1,93 +1,274 @@
-# 🤖 Medibot: Your AI Health Assistant 🩺
+# 🎨 MediBot Frontend - React Client Application
 
-<div align="center">
-  <img src="https://placehold.co/600x300/1E293B/E2E8F0?text=Medibot+UI" alt="Medibot Project Banner">
-</div>
+> **Modern React frontend for MediBot AI Health Assistant with real-time chat interface and comprehensive health tools.**
 
-**An advanced, user-centric health platform designed to provide intelligent guidance, symptom analysis, and a suite of wellness tools. Built with a modern React front-end and powered by a sophisticated AI backend.**
+## 📱 Overview
 
+The MediBot frontend is a React 19.1.1 application built with Vite and Tailwind CSS. It provides an intuitive user interface for interacting with the AI health assistant, featuring a real-time chat interface, conversation memory, and multiple health-related tools.
 
-[![Contributions Welcome](https://img.shields.io/badge/Contributions-welcome-brightgreen.svg?style=flat)](./CONTRIBUTING.md)
+## ✨ Implemented Features
 
----
+### 💬 **Interactive Chat Interface**
+- **Real-time messaging** with typing indicators and loading states
+- **Session persistence** with automatic conversation history
+- **Message feedback system** (thumbs up/down for responses)
+- **New conversation** and clear conversation functionality
+- **Context awareness indicators** showing when AI uses conversation history
 
-## ✨ Overview
+### 🧭 **Multi-Page Navigation**
+- **Landing Page** - Hero section with features and call-to-action
+- **Symptom Checker** - Main chat interface for health queries
+- **Wellness Hub** - Health calculators (BMI, calorie needs, heart rate zones, body fat percentage)
+- **Clinical Trial Finder** - Interactive map-based trial discovery interface
+- **Human Body Explorer** - Educational body systems exploration
+- **Air Quality Forecaster** - Real-time AQI, pollen, and UV dashboard
+- **Project Roadmap** - Visual development timeline
+- **Tech Stack** - Technology showcase page
+- **Contribute** - Contribution guidelines
+- **Doctor Recommender** - Doctor recommendation interface
+- **404 Page** - Custom not found page
 
-**Medibot** is more than just a symptom checker; it's a comprehensive health companion. This project combines a sleek, intuitive user interface with a powerful AI engine to bridge the gap between users and complex medical information. From interactive wellness calculators to a cutting-edge clinical trial finder, Medibot is designed to empower users to take a more active role in their health journey.
+### 🎨 **Modern UI/UX**
+- **Responsive design** optimized for all device sizes
+- **Smooth animations** using Framer Motion
+- **Dark/light themed components** with consistent styling
+- **Professional typography** and spacing
+- **Interactive elements** with hover states and transitions
 
-The front-end is built with **React** and **Tailwind CSS** to create a beautiful, responsive, and "next-level" user experience.
+## 🛠️ Tech Stack
 
----
+### **Core Framework**
+- **React 19.1.1** - Latest React with concurrent features
+- **Vite 7.1.2** - Lightning-fast build tool and dev server
+- **React Router DOM 7.8.1** - Client-side routing
 
-## 🚀 Core Features
+### **Styling & UI**
+- **Tailwind CSS 4.1.12** - Utility-first CSS framework with latest features
+- **Framer Motion 12.23.12** - Production-ready motion library
+- **Lucide React 0.540.0** - Beautiful icon library
+- **Typewriter Effect 2.22.0** - Animated text effects
 
-Medibot is packed with a wide range of features designed to be both functional and visually engaging:
+### **Data & Communication**
+- **Axios 1.11.0** - HTTP client for API requests
+- **React Markdown 10.1.0** - Markdown rendering for chat messages
+- **Remark GFM 4.0.1** - GitHub Flavored Markdown support
 
-### Main Application
-- **💬 AI Symptom Checker:** An interactive chat interface where users can describe their symptoms and receive AI-powered guidance. Includes a feedback mechanism to rate responses.
-- **🗺️ Clinical Trial Finder:** A modern dashboard with an interactive map to help users find relevant clinical trials based on their condition and location.
-- **❤️ Wellness Hub:** A suite of interactive health calculators with a sleek, dark-themed UI, including:
-  - BMI Calculator with a dynamic gauge.
-  - Daily Calorie Needs Calculator.
-  - Target Heart Rate Zone Calculator.
-  - Body Fat Percentage Estimator.
-- ** anatomical_heart: Body Explorer:** A beautiful, card-based interface allowing users to explore major organs and body systems to learn about their functions and related conditions.
-- **🌬️ Air Quality & Wellness Forecaster:** A visually stunning dashboard with an animated particle background that displays real-time AQI, pollen, and UV data for the user's location.
+### **Development Tools**
+- **ESLint 9.33.0** - Code linting and quality
+- **Vite Plugin React 5.0.0** - React integration for Vite
 
-### Informational Pages
-- **🗺️ Project Roadmap:** A unique, visually engaging timeline that showcases the project's development journey.
-- **🤝 Contribution Guide:** A clear, step-by-step guide for developers who want to contribute to the project.
-- **🛠️ Tech Stack Showcase:** A page detailing the technologies used, complete with a visual diagram of the AI pipeline.
-- **❓ 404 Not Found Page:** A creative, on-theme 404 page with an animated EKG background.
+## 📂 Project Structure
 
----
+```
+client/
+└── 📁 src/
+    ├── 📄 App.css
+    ├── 📄 App.jsx
+    ├── 📄 index.css
+    ├── 📄 main.jsx
+    ├── 📁 api/
+    │   └── 📄 ChatAPI.js
+    ├── 📁 assets/
+    │   └── 📄 react.svg
+    ├── 📁 components/
+    │   ├── 📄 ChatInput.jsx
+    │   ├── 📁 LandingPageComponents/
+    │   │   ├── 📄 CTA.jsx
+    │   │   ├── 📄 Disclaimer.jsx
+    │   │   ├── 📄 Features.jsx
+    │   │   └── 📄 Hero.jsx
+    │   ├── 📁 Layout/
+    │   │   ├── 📄 Footer.jsx
+    │   │   ├── 📄 MainLayout.jsx
+    │   │   └── 📄 Navbar.jsx
+    │   ├── 📁 SymptomCheckerComponents/
+    │   │   ├── 📄 ChatInput.jsx
+    │   │   ├── 📄 ChatWindow.jsx
+    │   │   ├── 📄 ConversationControls.jsx
+    │   │   ├── 📄 MedicalDisclaimer.jsx
+    │   │   └── 📄 Message.jsx
+    │   └── 📁 UI/
+    │       └── 📄 TypingIndicator.jsx
+    └── 📁 pages/
+        ├── 📄 AirQualityForecaster.jsx
+        ├── 📄 ClinicalTrialFinder.jsx
+        ├── 📄 Contribute.jsx
+        ├── 📄 DoctorRecommender.jsx
+        ├── 📄 FOLDER STERUCTURE.ini
+        ├── 📄 HumanBodyExplorer.jsx
+        ├── 📄 Landing.jsx
+        ├── 📄 NotFoundPage.jsx
+        ├── 📄 RoadMap.jsx
+        ├── 📄 SymptomCheckerPage.jsx
+        ├── 📄 TechStack.jsx
+        └── 📄 WellnessHub.jsx
+├── 📁 public/
+│   ├── 📄 gssoc logo.png
+│   ├── 📄 shield.svg
+│   └── 📄 vite.svg
+├── 📄 vite.config.js
+├── 📄 package.json
+├── 📄 package-lock.json
+├── 📄 index.html
+├── 📄 eslint.config.js
+├── 📄 README.md
+└── 📄 .gitignore
 
-## 🧰 Tech Stack
+```
 
-This project is built with a modern and powerful stack:
+## 🔌 Backend Integration
 
-| Category      | Technology                               |
-|---------------|------------------------------------------|
-| **Frontend** | React, Tailwind CSS                      |
-| **Backend** | Python                       |
-| **AI/ML** | Groq (LLM), LangChain, FAISS, Hugging Face |
+The frontend communicates with a **FastAPI backend** running on `http://localhost:8000` through a clean API layer:
 
----
+### **API Communication (`ChatAPI.js`)**
+- **Session Management**: Automatic session creation and persistence using localStorage
+- **Real-time Chat**: POST requests to `/api/rag/chat` endpoint
+- **Conversation History**: GET requests to retrieve previous messages
+- **Session Control**: Create new conversations and clear existing ones
 
-## ⚡ Getting Started (Frontend)
+### **Key API Interactions**
+```javascript
+// Send message with session management
+await chatAPI.sendMessage(message)
 
-To get a local copy of the React front-end up and running, follow these simple steps.
+// Get conversation history
+await chatAPI.getConversationHistory()
+
+// Start new conversation
+await chatAPI.startNewConversation()
+
+// Clear current conversation
+await chatAPI.clearConversation()
+```
+
+### **Backend Response Handling**
+The frontend processes responses that include:
+- **AI-generated responses** from Google Gemini
+- **Conversation context indicators** showing when previous messages were used
+- **Source citations** from the medical knowledge base
+- **Session IDs** for conversation persistence
+- **Generation timing** and metadata
+
+## 🚀 Getting Started
 
 ### Prerequisites
-
-- Node.js (v14 or later)
-- npm or yarn
+- **Node.js 16+** - JavaScript runtime
+- **npm or yarn** - Package manager
 
 ### Installation & Setup
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/yourusername/AI-health-chatbot.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git)
-    cd YOUR_REPOSITORY
-    ```
+1. **Navigate to Client Directory**
+   ```bash
+   cd client
+   ```
 
-2.  **Install NPM packages:**
-    ```bash
-    npm install
-    ```
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-3.  **Run the development server:**
-    ```bash
-    npm run dev
-    ```
-    This will run the app in development mode. Open [http://localhost:5173](http://localhost:5173) to view it in your browser. The page will reload when you make changes.
+3. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Access the Application**
+   Open http://localhost:5173 in your browser
+
+### **Backend Requirement**
+The frontend requires the FastAPI backend to be running on `http://localhost:8000` for full functionality. See the main project README for backend setup instructions.
+
+## 🧪 Available Scripts
+
+- **`npm run dev`** - Start development server with hot reload
+- **`npm run build`** - Build production-ready application
+- **`npm run preview`** - Preview production build locally
+- **`npm run lint`** - Run ESLint for code quality checks
+
+## 🎯 Key Components
+
+### **SymptomCheckerPage.jsx**
+- **Main chat interface** with conversation state management
+- **Session persistence** and history loading
+- **Real-time messaging** with loading states
+- **Feedback system** for user ratings
+- **Context awareness** indicators
+
+### **ChatAPI.js**
+- **Singleton API class** for consistent session management
+- **Automatic session creation** and localStorage persistence
+- **Error handling** with graceful fallbacks
+- **Response transformation** for UI compatibility
+
+### **Landing.jsx**
+- **Hero section** with animated elements
+- **Feature showcase** highlighting AI capabilities
+- **Call-to-action** directing users to symptom checker
+- **Medical disclaimer** for safety
+
+## 🎨 Styling Architecture
+
+### **Tailwind CSS Setup**
+- **Custom configuration** with extended color palette
+- **Responsive design utilities** for mobile-first development
+- **Component-based styling** with reusable classes
+- **Dark mode support** where applicable
+
+### **Animation Strategy**
+- **Framer Motion** for smooth page transitions
+- **Loading states** for better user experience
+- **Interactive elements** with hover and focus states
+- **Typewriter effects** for engaging text display
+
+## 🔒 State Management
+
+### **Local State (React useState)**
+- **Chat messages** array with message history
+- **Loading states** for API requests
+- **Session information** and user preferences
+- **Form inputs** and user interactions
+
+### **Session Persistence**
+- **localStorage** for session ID storage
+- **Conversation history** retrieved from backend
+- **User preferences** maintained across sessions
+
+## 📱 Responsive Design
+
+- **Mobile-first approach** with Tailwind CSS
+- **Breakpoint optimization** for tablets and desktops
+- **Touch-friendly interfaces** for mobile devices
+- **Flexible layouts** that adapt to screen sizes
+
+## 🚀 Production Build
+
+### Build Optimization
+- **Code splitting** with Vite's automatic optimization
+- **Asset optimization** including image compression
+- **Bundle analysis** for performance monitoring
+- **Progressive loading** for better user experience
+
+### Deployment Ready
+- **Static file generation** for easy hosting
+- **Environment variable support** for different environments
+- **CDN compatibility** for global distribution
+
+## 🤝 Contributing to Frontend
+
+### Development Guidelines
+- **Component structure** - Keep components focused and reusable
+- **Styling consistency** - Follow Tailwind CSS patterns
+- **State management** - Use appropriate state management for component scope
+- **API integration** - Use the existing ChatAPI.js for backend communication
+
+### Code Quality
+- **ESLint configuration** enforces coding standards
+- **Component documentation** with clear prop definitions
+- **Responsive design** testing across devices
+- **Accessibility** considerations for inclusive design
 
 ---
 
-## 🤝 Contributing
+**Frontend built with ❤️ using modern React ecosystem**
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-Please see our [**Contribution Guidelines**](./CONTRIBUTING.md) for more details on how to get started.
-
----
+*Providing an intuitive interface for AI-powered health assistance* 🎨✨
