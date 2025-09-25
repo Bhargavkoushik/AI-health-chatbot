@@ -15,6 +15,7 @@ import ClinicalTrialFinder from './pages/ClinicalTrialFinder'
 import PrescriptionAnalysisPage from './pages/PrescriptionAnalysisPage'
 
 
+
 const App = () => {
   return (
     <div>

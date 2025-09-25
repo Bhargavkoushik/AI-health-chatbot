@@ -1,33 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [currentPath, setCurrentPath] = useState('/');
 
-    // SVG Icon components for clarity and reuse
+    // Update current path
+    useEffect(() => {
+        setCurrentPath(window.location.pathname);
+    }, []);
+
+    // Clean, professional SVG icons
+    const HomeIcon = () => (
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m3 12 2-2m0 0 7-7 7 7M5 10v10a1 1 0 0 0 1 1h3m10-11 2 2m-2-2v10a1 1 0 0 1-1 1h-3m-6 0a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1m-6 0h6" />
+        </svg>
+    );
+
+    const HealthIcon = () => (
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 14.3M14.25 3.104c.251.023.501.05.75.082M19.8 14.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 1-6.23-.693L5 14.5m14.8-.2a3 3 0 1 1-5.6-2.4c0-1.98.97-3.735 2.46-4.8a22.58 22.58 0 0 1 1.94-1.3c.445-.295.94-.569 1.45-.813M5 14.5a3 3 0 1 0 5.6-2.4c0-1.98-.97-3.735-2.46-4.8a22.648 22.648 0 0 0-1.94-1.3c-.445-.295-.94-.569-1.45-.813" />
+        </svg>
+    );
+
     const StethoscopeIcon = () => (
-        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5A2.5 2.5 0 0021.5 5.5V3.935m-13.483 0a1.5 1.5 0 01-1.06.44m1.06-.44l-.25 1.007a1.5 1.5 0 01-2.927 0l-.25-1.007m3.427 0a1.5 1.5 0 00-1.06-.44m1.06.44a1.5 1.5 0 011.06.44m0 0l.25 1.007a1.5 1.5 0 012.927 0l.25-1.007M10.5 8h4.5a2 2 0 110 4h-4.5a2 2 0 110-4z"></path></svg>
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 0 0-1.022-.547l-2.387-.477a6 6 0 0 0-3.86.517l-.318.158a6 6 0 0 1-3.86.517L6.05 15.21a2 2 0 0 0-1.806.547M8 4h8l-1 1v5.172a2 2 0 0 0 .586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 0 0 9 10.172V5L8 4z" />
+        </svg>
+    );
+
+    const CalculatorIcon = () => (
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25z" />
+        </svg>
     );
 
     const UserGroupIcon = () => (
-        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0z" />
+        </svg>
     );
 
-    const CodeBracketIcon = () => (
-        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 12"></path></svg>
+    const BodyIcon = () => (
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+    );
+
+    const CloudIcon = () => (
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15z" />
+        </svg>
+    );
+
+    const CodeIcon = () => (
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 12" />
+        </svg>
     );
 
     const MapIcon = () => (
-        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z" />
+        </svg>
     );
-    
-    const HeartIcon = () => (
-        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-    );
-
-    const HomeIcon = () => (
-        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-    );
-
     const PrescriptionIcon = () => (
         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -41,40 +77,41 @@ const Navbar = () => {
                 : 'text-gray-600 hover:text-red-600 hover:bg-red-50'
         }`}>
             <span className="flex items-center text-sm font-medium">
+
                 {children}
             </span>
         </a>
     );
 
     return (
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-[0px_2px_10px_rgba(0,0,0,0.1)] border-b border-gray-100">
-            <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
-                <div className="flex items-center justify-between h-14 sm:h-16">
-                    {/* Logo - Optimized spacing */}
-                    <a href="/" className="group inline-block text-slate-800 hover:text-slate-900 transition-colors duration-300 flex-shrink-0">
-                        <div className="flex items-center space-x-2 sm:space-x-3">
-                            {/* Logo SVG Icon */}
-                            <svg className="w-6 h-6 sm:w-8 sm:h-8 text-red-600 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM17 13h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-                                <path d="M15.24 7.24l-2.47 2.47-1.41-1.41-1.06 1.06 2.47 2.47-2.47 2.47 1.06 1.06 2.47-2.47 2.47 2.47 1.06-1.06-2.47-2.47 2.47-2.47-1.06-1.06-2.47 2.47z" opacity="0.5"/>
+        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-slate-200 shadow-sm">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo Section */}
+                    <a href="/" className="flex items-center space-x-3 text-slate-900 hover:text-slate-700 transition-colors">
+                        {/* Medical Plus Icon */}
+                        <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center shadow-sm">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
-                            <div className="hidden xs:block">
-                                <div className="text-lg sm:text-xl lg:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent group-hover:from-red-600 group-hover:to-red-700 transition-all duration-300">
-                                    MediBot
-                                </div>
-                                <div className="text-xs font-medium text-slate-500 tracking-widest uppercase -mt-0.5 hidden sm:block group-hover:text-red-500 transition-colors duration-300">
-                                    AI Health Assistant
-                                </div>
-                            </div>
+                        </div>
+                        
+                        {/* Brand Text - Always visible including mobile */}
+                        <div className="flex flex-col">
+                            <span className="text-xl font-bold text-slate-900">MediBot</span>
+                            <span className="text-xs text-slate-500 -mt-1 hidden sm:block">AI Health Assistant</span>
                         </div>
                     </a>
 
-                    {/* Desktop Navigation - ALL OPTIONS INCLUDED */}
+                    {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center space-x-1">
-                        <NavLink href="/" isCurrent={window.location.pathname === '/'}>
-                            <HomeIcon /> Overview
+                        <NavLink href="/" isCurrent={currentPath === '/'}>
+                            <HomeIcon /> Home
                         </NavLink>
-                        <NavLink href="/symptom-checker" isCurrent={window.location.pathname === '/symptom-checker'}>
+                        <NavLink href="/hub" isCurrent={currentPath === '/hub'}>
+                            <HealthIcon /> Health Hub
+                        </NavLink>
+                        <NavLink href="/symptom-checker" isCurrent={currentPath === '/symptom-checker'}>
                             <StethoscopeIcon /> Symptom Checker
                         </NavLink>
                         <NavLink href="/prescription-analyzer" isCurrent={window.location.pathname === '/prescription-analyzer'}>
@@ -83,30 +120,31 @@ const Navbar = () => {
                         <NavLink href="/doctor-recommender">
                             <UserGroupIcon /> Doctor Recommender
                         </NavLink>
-                        <NavLink href="/tech-stack">
-                            <CodeBracketIcon /> Tech Stack
+                        <NavLink href="/doctor-recommender" isCurrent={currentPath === '/doctor-recommender'}>
+                            <UserGroupIcon /> Find Doctors
                         </NavLink>
-                        <NavLink href="/wellness-hub">
-                            <HeartIcon /> Wellness Hub
+                        <NavLink href="/human-body-explorer" isCurrent={currentPath === '/human-body-explorer'}>
+                            <BodyIcon /> Body Explorer
                         </NavLink>
-                        <NavLink href="/human-body-explorer">
-                            <HeartIcon /> Body Explorer
+                        <NavLink href="/air-quality-forecaster" isCurrent={currentPath === '/air-quality-forecaster'}>
+                            <CloudIcon /> Air Quality
                         </NavLink>
-                        <NavLink href="/air-quality-forecaster">
-                            <MapIcon /> Air Quality
+                        <NavLink href="/tech-stack" isCurrent={currentPath === '/tech-stack'}>
+                            <CodeIcon /> Tech Stack
                         </NavLink>
-                        <NavLink href="/roadmap">
+                        <NavLink href="/roadmap" isCurrent={currentPath === '/roadmap'}>
                             <MapIcon /> Roadmap
                         </NavLink>
-                        <NavLink href="/contribute">
+                        <NavLink href="/contribute" isCurrent={currentPath === '/contribute'}>
                             <HeartIcon /> Contribute
                         </NavLink>
                     </nav>
 
-                    {/* Mobile menu button */}
+                    {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-red-600 hover:bg-red-50 transition-colors duration-300"
+                        className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-red-600 hover:bg-red-50 transition-colors"
+                        aria-label="Toggle menu"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             {isMenuOpen ? (
@@ -118,14 +156,29 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Mobile Navigation - ALL OPTIONS INCLUDED */}
+                {/* Mobile Navigation Menu */}
                 {isMenuOpen && (
-                    <div className="lg:hidden border-t border-gray-200 bg-white shadow-lg">
-                        <div className="py-3 space-y-1 max-h-96 overflow-y-auto">
-                            <NavLink href="/" isCurrent={window.location.pathname === '/'}>
-                                <HomeIcon /> Overview
+                    <div className="lg:hidden border-t border-slate-200 bg-white/95 backdrop-blur-lg">
+                        <div className="py-4 space-y-1">
+                            <NavLink 
+                                href="/" 
+                                isCurrent={currentPath === '/'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <HomeIcon /> Home
                             </NavLink>
-                            <NavLink href="/symptom-checker" isCurrent={window.location.pathname === '/symptom-checker'}>
+                            <NavLink 
+                                href="/hub" 
+                                isCurrent={currentPath === '/hub'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <HealthIcon /> Health Hub
+                            </NavLink>
+                            <NavLink 
+                                href="/symptom-checker" 
+                                isCurrent={currentPath === '/symptom-checker'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
                                 <StethoscopeIcon /> Symptom Checker
                             </NavLink>
                             <NavLink href="/prescription-analyzer" isCurrent={window.location.pathname === '/prescription-analyzer'}>
@@ -134,22 +187,46 @@ const Navbar = () => {
                             <NavLink href="/doctor-recommender">
                                 <UserGroupIcon /> Doctor Recommender
                             </NavLink>
-                            <NavLink href="/tech-stack">
-                                <CodeBracketIcon /> Tech Stack
+                            <NavLink 
+                                href="/doctor-recommender" 
+                                isCurrent={currentPath === '/doctor-recommender'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <UserGroupIcon /> Find Doctors
                             </NavLink>
-                            <NavLink href="/wellness-hub">
-                                <HeartIcon /> Wellness Hub
+                            <NavLink 
+                                href="/human-body-explorer" 
+                                isCurrent={currentPath === '/human-body-explorer'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <BodyIcon /> Body Explorer
                             </NavLink>
-                            <NavLink href="/human-body-explorer">
-                                <HeartIcon /> Body Explorer
+                            <NavLink 
+                                href="/air-quality-forecaster" 
+                                isCurrent={currentPath === '/air-quality-forecaster'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <CloudIcon /> Air Quality
                             </NavLink>
-                            <NavLink href="/air-quality-forecaster">
-                                <MapIcon /> Air Quality
+                            <NavLink 
+                                href="/tech-stack" 
+                                isCurrent={currentPath === '/tech-stack'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <CodeIcon /> Tech Stack
                             </NavLink>
-                            <NavLink href="/roadmap">
+                            <NavLink 
+                                href="/roadmap" 
+                                isCurrent={currentPath === '/roadmap'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
                                 <MapIcon /> Roadmap
                             </NavLink>
-                            <NavLink href="/contribute">
+                            <NavLink 
+                                href="/contribute" 
+                                isCurrent={currentPath === '/contribute'} 
+                                onClick={() => setIsMenuOpen(false)}
+                            >
                                 <HeartIcon /> Contribute
                             </NavLink>
                         </div>
