@@ -12,6 +12,7 @@ import WellnessHub from './pages/WellnessHub'
 import HumanBodyExplorer from './pages/HumanBodyExplorer'
 import AirQualityForecaster from './pages/AirQualityForecaster'
 import ClinicalTrialFinder from './pages/ClinicalTrialFinder'
+import Hub from './pages/Hub'
 
 
 const App = () => {
@@ -29,6 +30,9 @@ const App = () => {
           <Route path="/human-body-explorer" element={<HumanBodyExplorer />} />
           <Route path="/air-quality-forecaster" element={<AirQualityForecaster />} />
           <Route path="/clinical-trial-finder" element={<ClinicalTrialFinder />} />
+
+          <Route path="/hub" element={<Hub />} />
+
           <Route path="*" element={<NotFoundPage/>} />
         </Route>
       </Routes>
