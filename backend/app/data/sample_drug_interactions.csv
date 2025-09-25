@@ -1,0 +1,55 @@
+DrugA,DrugB,Severity,Interaction
+Warfarin,Aspirin,High,Increased bleeding risk - monitor INR closely and watch for signs of bleeding
+Metformin,Alcohol,Moderate,Risk of lactic acidosis - avoid excessive alcohol consumption
+Digoxin,Furosemide,Moderate,Electrolyte imbalance may increase digoxin toxicity - monitor potassium levels
+Simvastatin,Clarithromycin,High,Increased risk of muscle toxicity and rhabdomyolysis
+Lisinopril,Potassium,High,Risk of hyperkalemia - monitor serum potassium levels
+Metformin,Contrast Dye,Moderate,Risk of lactic acidosis - temporarily discontinue before procedures
+Warfarin,Amoxicillin,Moderate,May increase anticoagulant effect - monitor INR
+Atenolol,Insulin,Moderate,May mask symptoms of hypoglycemia
+Digoxin,Verapamil,High,Increased digoxin levels - reduce digoxin dose
+Lithium,Hydrochlorothiazide,High,Risk of lithium toxicity - monitor lithium levels
+Phenytoin,Fluconazole,High,Increased phenytoin levels - monitor for toxicity
+Theophylline,Ciprofloxacin,High,Increased theophylline levels - monitor for toxicity
+Cyclosporine,Ketoconazole,High,Increased cyclosporine levels - monitor renal function
+Digoxin,Quinidine,High,Increased digoxin levels - reduce digoxin dose by 50%
+Warfarin,Fluconazole,High,Increased anticoagulant effect - monitor INR closely
+Methotrexate,Trimethoprim,High,Risk of bone marrow suppression
+Phenytoin,Carbamazepine,Moderate,May decrease phenytoin levels
+Digoxin,Spironolactone,Moderate,May increase or decrease digoxin levels
+Warfarin,Rifampin,Moderate,Decreased anticoagulant effect - monitor INR
+Theophylline,Phenytoin,Moderate,Decreased theophylline levels
+Lithium,Ibuprofen,High,Risk of lithium toxicity - monitor lithium levels
+Digoxin,Amiodarone,High,Increased digoxin levels - reduce digoxin dose
+Cyclosporine,Grapefruit Juice,Moderate,Increased cyclosporine levels - avoid grapefruit
+Warfarin,Green Vegetables,Low,May decrease anticoagulant effect - maintain consistent intake
+Metformin,Cimetidine,Moderate,Increased metformin levels - monitor for lactic acidosis
+Digoxin,Erythromycin,Moderate,Increased digoxin levels - monitor levels
+Phenytoin,Isoniazid,High,Increased phenytoin levels - monitor for toxicity
+Warfarin,Miconazole,High,Increased anticoagulant effect - avoid concurrent use
+Lithium,Captopril,Moderate,Risk of lithium toxicity - monitor lithium levels
+Theophylline,Allopurinol,Moderate,Increased theophylline levels
+Digoxin,Tetracycline,Moderate,May increase digoxin levels in some patients
+Cyclosporine,Diltiazem,High,Increased cyclosporine levels - monitor renal function
+Warfarin,Cimetidine,Moderate,Increased anticoagulant effect - monitor INR
+Phenytoin,Valproic Acid,High,Complex interaction - monitor both drug levels
+Methotrexate,Aspirin,High,Risk of methotrexate toxicity
+Digoxin,Captopril,Low,May slightly increase digoxin levels
+Theophylline,Cimetidine,High,Increased theophylline levels - reduce dose
+Lithium,Amiloride,Moderate,May increase lithium levels
+Warfarin,Acetaminophen,Low,High doses may increase anticoagulant effect
+Cyclosporine,Phenytoin,High,Decreased cyclosporine levels - monitor rejection
+Metformin,Furosemide,Moderate,Increased risk of lactic acidosis with dehydration
+Digoxin,Itraconazole,High,Increased digoxin levels - reduce digoxin dose
+Phenytoin,Rifampin,High,Decreased phenytoin levels - may need dose increase
+Warfarin,Thyroid Hormone,Moderate,Increased anticoagulant effect - monitor INR
+Theophylline,Propranolol,Moderate,Increased theophylline levels
+Lithium,Losartan,Moderate,Risk of lithium toxicity - monitor levels
+Methotrexate,Probenecid,High,Increased methotrexate levels - reduce dose
+Digoxin,Propafenone,High,Increased digoxin levels - reduce digoxin dose
+Cyclosporine,St Johns Wort,High,Decreased cyclosporine levels - avoid concurrent use
+Warfarin,Omeprazole,Low,May slightly increase anticoagulant effect
+Phenytoin,Sulfonamides,Moderate,Increased phenytoin levels
+Theophylline,Zafirlukast,Moderate,Increased theophylline levels
+Metformin,Topiramate,Moderate,Risk of metabolic acidosis
+Digoxin,Macrolides,Moderate,May increase digoxin levels - monitor

@@ -38,3 +38,10 @@ loguru
 # Document Loaders
 python-docx
 pypdf
+
+# Prescription Analysis Dependencies
+pytesseract==0.3.10
+Pillow==10.0.1
+PyMuPDF==1.23.8
+spacy==3.7.2
+opencv-python==4.8.1.78

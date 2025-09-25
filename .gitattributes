@@ -1,0 +1,32 @@
+# Normalize line endings for all text files
+* text=auto eol=lf
+
+# Explicit text files
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+*.py text
+*.css text
+*.html text
+*.svg text
+*.csv text
+*.txt text
+
+# Keep binary files untouched
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.faiss binary
+*.pkl binary
+
+# Windows PowerShell scripts can keep CRLF if needed
+*.ps1 text eol=crlf
